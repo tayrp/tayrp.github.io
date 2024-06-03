@@ -1,1 +1,0 @@
-npx makeswift@latest init --example=basic-typescript
