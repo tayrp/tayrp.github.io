@@ -39,7 +39,7 @@ ul.navbar-nav {
 	display: inline-block;
 	margin: 9px 0 0 15px;
 	padding: 6px 15px;
-	background: #ff96b4;
+	background: #b1cbcc;
 	border: 0;
 	font-family: 'Shantell Sans', sans-serif;
 	font-size: 14px;
@@ -56,7 +56,14 @@ ul.navbar-nav {
 	text-indent: -696969px;
 }
 
-about { position: center;}
+.about {
+	text-align: center;
+	margin: auto;
+	width: 1000px; 
+	padding: 260px;
+	color: #b1cbcc;
+	font-size: 22px;
+}
 
 footer { padding: 40px 0 45px 0; background: none; }
 
@@ -73,5 +80,3 @@ center {
     width: 500px;
     margin: 0 auto;
 }
-
-border-radius: 15px 50px 30px 5px;
