@@ -1,0 +1,79 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  TAB BAR
+ *
+ */
+
+%tabBar {
+    height: 48px;
+    gap: 24px;
+
+	%tabBarItem {
+        height: inherit;
+        line-height: 48px;
+        margin: 0;
+        padding: 0 8px;
+        border-radius: 0;
+        border: none !important;
+        color: var(--interactive-normal) !important;
+
+        &,
+        &:hover,
+        &%tabBarItemSelected {
+        	background-color: transparent !important;
+        }
+
+        &:not(%tabBarItemDisabled) {
+        	&:hover {
+        		color: var(--interactive-hover) !important;
+        	}
+        }
+
+        &%tabBarItemSelected {
+        	color: var(--interactive-normal) !important;
+        }
+
+        &%tabBarItemSelected,
+        &[aria-selected="true"] {
+        	@include tab-border(80%);
+        }
+
+        &:last-of-type {
+        	margin-right: 0;
+        }
+
+        &%tabBarItemDisabled {
+            opacity: 0.5;
+        }
+	}
+}
+
+%settingsProfilesTabBar {
+    padding-top: 0;
+
+    %tabBarItem {
+        height: 47px;
+    }
+}
+
+%eventTabBar {
+	height: 56px;
+	margin-bottom: 0;
+	padding-top: 0;
+
+	%tabBarItem {
+		padding: 0 8px;
+		line-height: 56px;
+	}
+}
+
+%serverSubscriptionsTabBar {
+    border-bottom-width: 1px;
+
+    %tabBarItem {
+        margin-right: 24px !important;
+        margin-bottom: 0;
+    }
+}

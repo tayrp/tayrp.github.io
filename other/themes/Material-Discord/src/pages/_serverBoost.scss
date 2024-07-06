@@ -1,0 +1,176 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	SERVER BOOST
+ *
+ */
+
+%serverBoostScroller {
+	background-color: var(--main-color);
+
+    %serverBoostHeading {
+        color: var(--header-primary) !important;
+    }
+
+    %serverBoostHeading,
+    .heading-xl-bold-38fuFv,
+    .heading-xxl-semibold-2jeRzp,
+    .heading-xxl-bold-nfv1ir,
+    .heading-xxl-extrabold-2-MUEs {
+        font-weight: 400;
+    }
+}
+
+%serverBoostHeader {
+    background: none !important;
+
+    %serverBoostHeaderWave {
+        display: none;
+    }
+
+    %serverBoostGuildName {
+        color: var(--header-primary) !important;
+    }
+
+    %serverBoostGuildBoostCountWrapper {
+        color: var(--header-secondary);
+
+        %serverBoostGuildStatusCopy {
+            opacity: 1;
+        }
+    }
+}
+
+%serverBoostBodyWave {
+    display: none;
+}
+
+%serverBoostFloatingPillInnerWrapper {
+    padding: 12px 24px 12px 12px;
+    background-color: var(--popout-color);
+    box-shadow: var(--shadow-3dp);
+
+    &:before,
+    &:after {
+        display: none;
+    }
+}
+
+/* SERVER BOOST -> BOOST BUTTONS */
+
+%serverBoostGuildBoostCtas {
+    max-width: unset;
+    justify-content: center;
+
+    %serverBoostGuildBoostCta {
+        flex: 0 1 auto;
+
+        &:hover {
+            transform: none;
+        }
+    }
+}
+
+%serverBoostGuildBoostCtaBoost {
+    --button-background: hsl(var(--accent-hsl--material-you)) !important;
+	--button-text-color: var(--accent-text-color--material-you) !important;
+
+    width: auto;
+
+    %serverBoostGuildBoostCtaBoostContent {
+        margin: 0;
+        color: var(--button-text-color);
+    }
+}
+
+%serverBoostGuildBoostCtaSecondary {
+    --button-text-color: hsl(var(--accent-hsl--material-you)) !important;
+    --button-outline: 1px solid hsl(var(--accent-hsl--material-you)) !important;
+}
+
+/* SERVER BOOST -> BOOST PROGRESS BAR */
+
+%serverBoostProgressBarFill {
+	background-image: none;
+	background-color: var(--guild-boosting-pink);
+}
+
+%serverBoostProgressBarTrack {
+    background-color: var(--card-color-filled);
+}
+
+%serverBoostProgressBarMarker {
+    background-color: var(--main-color);
+
+    %serverBoostBoostedTierIconBackground {
+        background-color: var(--card-color-filled);
+        opacity: 1;
+    }
+
+    %serverBoostProgressBarMarkerLabel {
+        font-weight: 500;
+        color: var(--text-normal);
+        opacity: 1;
+    }
+
+    &%serverBoostProgressBarMarkerLocked {
+        %serverBoostProgressBarMarkerLabel {
+            color: var(--text-muted);
+        }
+    }
+}
+
+/* SERVER BOOST -> TIER CARDS */
+
+%serverBoostTierCard {
+    border-radius: var(--card-radius-big);
+	box-shadow: none;
+}
+
+/* SERVER BOOST -> TOP PERKS */
+
+%serverBoostTopPerksCard {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+}
+
+%serverBoostPerkPreviewImage {
+	@include popout-format;
+}
+
+/* SERVER BOOST -> COMMUNITY RECOGNITION */
+
+%serverBoostCommunityRecognitionWrapper {
+    margin-bottom: 64px;
+    border-radius: var(--card-radius-big);
+
+    %serverBoostCommunityRecognitionBackgroundImages {
+        border-radius: var(--card-radius-big);
+    }
+}
+
+%serverBoostCommunityRecognitionCard {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+}
+
+/* SERVER BOOST -> BOOST MODAL */
+
+%serverBoostSubscriptionCard {
+    @include card-format(false, 16px, true);
+
+    %serverBoostSubscriptionTierPill {
+        background-color: var(--card-color-active) !important;
+    }
+}
+
+%pendingCancellationCard {
+    background-color: hsl(var(--warning-hsl),0.3);
+    border-radius: var(--card-radius-big);
+    border: none;
+
+    %pendingCancellationIcon {
+        color: hsl(var(--warning-hsl));
+    }
+}

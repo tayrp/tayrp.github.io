@@ -1,0 +1,81 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	SLIDERS
+ *
+ */
+
+%slider {
+	%sliderBar {
+		height: 4px;
+		background-color: hsl(var(--accent-hsl),0.3) !important;
+		border-radius: 2px;
+
+		%sliderBarFill {
+			background-color: hsl(var(--accent-hsl--material-you)) !important;
+			border-radius: 2px;
+		}
+	}
+
+	%sliderTrack {
+		%sliderGrabber {
+			width: 16px;
+			height: 16px;
+			background-color: hsl(var(--accent-hsl--material-you));
+			border-radius: 50%;
+			border: none;
+			box-shadow: var(--shadow-1dp);
+			transform: translate(-3px, calc(50% - 5px));
+			transition: var(--default-time) var(--default-animation) box-shadow;
+
+			@include md-ripple(hover_click, after, 2.5, true);
+
+			&:hover {
+				box-shadow: var(--shadow-2dp);
+			}
+
+			&:active {
+				box-shadow: var(--shadow-3dp);
+			}
+		}
+	}
+
+	&%sliderMenuPopout {
+		%sliderTrack {
+			%sliderGrabber {
+				top: calc(50% - 5px);
+			}
+		}
+	}
+}
+
+.markValue_e7a6e4 {
+	color: var(--text-muted) !important;
+}
+
+/* SLIDERS -> BD SLIDER */
+
+%bdSliderLabel {
+    width: 42px;
+    background-color: hsl(var(--accent-hsl--material-you));
+    color: var(--accent-text-color--material-you);
+    border-radius: 13px;
+    text-align: center;
+}
+
+%bdSliderInput {
+    height: 4px;
+    background-color: hsl(var(--accent-hsl--material-you), 0.3);
+    background-image: linear-gradient(hsl(var(--accent-hsl--material-you)), hsl(var(--accent-hsl--material-you)));
+    border-radius: 2px;
+
+    &::-webkit-slider-thumb {
+        width: 16px;
+        height: 16px;
+        background-color: hsl(var(--accent-hsl--material-you));
+        border-radius: 50%;
+        border: none;
+        box-shadow: var(--shadow-1dp);
+    }
+}

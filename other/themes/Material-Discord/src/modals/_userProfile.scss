@@ -1,0 +1,87 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	USER PROFILE
+ *
+ */
+
+%biteSizeIconButton {
+    padding: 0;
+
+    %buttonContents {
+        min-height: var(--button-height);
+        min-width: var(--button-height);
+    }
+}
+
+%userProfileModalTabBar {
+    height: 48px;
+    margin: 0;
+    padding: 0 16px;
+    gap: 24px;
+
+    %tabBarItem {
+		height: inherit;
+		border-bottom: none;
+
+		&%tabBarItemSelected {
+			@include tab-border(90%);
+		}
+
+        %textSmNormal {
+            line-height: 48px;
+        }
+	}
+}
+
+%fullSizeOverlayBackground {
+    border-radius: calc(var(--popout-radius-big) / 1.75);
+    border: none;
+}
+
+/* USER PROFILE -> CONNECTED ACCOUNTS */
+
+%userProfileModalConnectedAccounts {
+	margin-top: -16px;
+	border-top: none !important;
+
+	%userProfileModalConnectedAccount {
+		--card-color-filled: var(--card-color-hover);
+		--card-radius-big: var(--card-radius);
+
+		margin-top: 16px;
+		@include card-format(false, 12px 8px, true);
+	}
+}
+
+/* USER PROFILE -> NOTE */
+
+%userProfileModalNote {
+	margin: 0;
+
+	textarea {
+		padding: 6px 12px;
+		border-radius: var(--input-radius);
+        box-shadow: none !important;
+
+		&:focus {
+			background-color: var(--input-color);
+		}
+	}
+}
+
+/* USER PROFILE -> LISTS */
+
+%listRow {
+	border-radius: var(--popout-radius);
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:hover {
+		background-color: var(--menu-item-hover);
+	}
+}
+
+%listRowIconActiveMedium {
+	border-radius: 50%;
+}

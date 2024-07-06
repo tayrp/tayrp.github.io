@@ -1,0 +1,331 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	ATTACHMENTS
+ *
+ */
+
+%nonMediaAttachmentsContainer {
+	margin-top: 0;
+}
+
+%attachment {
+	background-color: var(--attachment-color);
+	border-radius: var(--media-radius);
+	border: none;
+
+	&%attachmentNewMosaicStyle {
+		border-radius: var(--media-radius);
+	}
+
+	%attachmentDownloadButton {
+		margin-left: 0;
+
+		path {
+			d: path('M13 5v6h1.17L12 13.17 9.83 11H11V5h2m2-2H9v6H5l7 7 7-7h-4V3zm4 15H5v2h14v-2z') !important;
+		}
+	}
+}
+
+%attachmentHoverButtonGroup {
+	background-color: var(--card-button-color);
+	border-radius: 16px;
+	transition: var(--default-time) var(--default-animation) opacity;
+
+	%attachmentHoverButton {
+		transition: var(--default-time) var(--default-animation) background-color;
+
+		&:hover {
+			background-color: var(--card-button-color-hover);
+		}
+	}
+
+	%attachmentDownloadButtonIcon {
+        path {
+            d: path("M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M17,11l-1.41-1.41L13,12.17V4h-2v8.17L8.41,9.59L7,11l5,5 L17,11z");
+        }
+    }
+}
+
+%attachmentNonMediaAttachment {
+    width: 32px;
+    height: 32px;
+    top: 0;
+    right: 12px;
+    bottom: 0;
+    margin: auto 0;
+    outline: none;
+
+    &%attachmentHoverButtonGroup {
+        background-color: transparent;
+        opacity: 1;
+    }
+}
+
+%attachmentVideo {
+	border-radius: var(--media-radius);
+}
+
+%attachmentThreadContainer {
+    background-color: var(--attachment-color);
+	border-radius: var(--media-radius);
+}
+
+%fileProgress {
+	background-color: hsl(var(--accent-hsl),0.3) !important;
+
+	%fileProgressBar {
+		background-color: hsl(var(--accent-hsl--material-you)) !important;
+	}
+}
+
+%bumpBox {
+    background-color: var(--attachment-color);
+    border-radius: var(--media-radius);
+}
+
+%embed {
+	border-radius: var(--media-radius);
+
+	&%embedFull {
+		background-color: var(--attachment-color);
+	}
+}
+
+%embedCard {
+	background-color: var(--attachment-color);
+	border-radius: var(--message-radius);
+
+	&%embedCardSelected {
+		background-color: var(--attachment-color);
+	}
+
+	%messagesWrapper {
+		margin: 0 0 0 48px !important;
+
+		%avatarLarge {
+			left: -48px !important;
+			margin-top: 0;
+		}
+	}
+}
+
+%embedCardWithFooter {
+	padding-bottom: 0;
+	border-radius: var(--media-radius) var(--media-radius) 0 0;
+}
+
+%embedCardFooterContainer {
+	padding: 8px 16px 8px;
+	background-color: var(--attachment-color);
+	border-radius: 0 0 var(--media-radius) var(--media-radius);
+
+    %button {
+        --button-height: 30px;
+
+        %buttonContents {
+            > div {
+                height: var(--button-height);
+            }
+        }
+
+		%textXsNormal {
+            color: hsl(var(--accent-text-color--material-you)) !important;
+            font-weight: 500;
+        }
+    }
+}
+
+%embedChildren {
+    margin-top: 4px;
+    gap: 8px;
+
+    %button {
+        margin: 0;
+    }
+}
+
+%embedGuildShop {
+    background-color: var(--attachment-color) !important;
+    border-radius: var(--media-radius);
+
+    %buttonFilled {
+        &%buttonBrand {
+            %textSmMedium {
+                color: inherit !important;
+            }
+        }
+    }
+}
+
+%buildOverrideWrapper {
+	background-color: var(--attachment-color);
+	border-radius: var(--media-radius)
+}
+
+%inviteWrapper {
+	background-color: var(--attachment-color) !important;
+	border-radius: var(--media-radius);
+
+	%inviteSplash,
+	%inviteBanner {
+		border-radius: var(--media-radius);
+	}
+
+	%inviteContent {
+		gap: 12px;
+	}
+
+	%inviteTitle {
+		@include remove-caps(14px);
+	}
+
+	%inviteGuildIcon {
+		border-radius: 50%;
+	}
+}
+
+%activityInvite {
+	background-color: var(--attachment-color) !important;
+	border-radius: var(--media-radius);
+	border: none !important;
+}
+
+/* ATTACHMENTS -> AUDIO FILE */
+
+%playerAudio {
+	padding: 0;
+	background-color: var(--attachment-color) !important;
+	border-radius: var(--media-radius);
+	border: none;
+
+	&%playerAudioNewMosaicStyle {
+		padding: 0;
+		border-radius: var(--media-radius);
+	}
+
+	%playerAudioMetadata {
+		padding: 12px 12px 4px;
+
+		%playerMetadataIcon {
+			path {
+				&[d="M16.293 9.293L17.707 10.707L12 16.414L6.29297 10.707L7.70697 9.293L11 12.586V2H13V12.586L16.293 9.293ZM18 20V18H20V20C20 21.102 19.104 22 18 22H6C4.896 22 4 21.102 4 20V18H6V20H18Z"] {
+					d: path('M13 5v6h1.17L12 13.17 9.83 11H11V5h2m2-2H9v6H5l7 7 7-7h-4V3zm4 15H5v2h14v-2z');
+				}
+			}
+		}
+	}
+
+	+ %attachmentNonMediaAttachment {
+		top: 12px;
+		bottom: unset;
+		margin: 0;
+	}
+
+	%playerAudioControls {
+		margin-top: 0;
+		background-color: transparent;
+		border-radius: 0;
+		border-top: 1px solid var(--card-border-color);
+		color: var(--text-normal);
+
+		%playerControlIcon {
+			padding: 8px;
+		}
+	}
+}
+
+%voiceMessageContainer {
+	background-color: var(--attachment-color);
+	border-radius: var(--media-radius);
+
+    &%voiceMessagePlaying {
+        %voiceMessagePlayButtonContainer {
+            border-radius: 10px;
+        }
+    }
+}
+
+%voiceMessageContainerRipple {
+    display: none;
+}
+
+%voiceMessagePlayButtonContainer {
+    background: hsl(var(--accent-hsl--material-you)) !important;
+    transition: var(--default-time) var(--default-animation) border-radius;
+
+    &:active {
+        transform: none;
+    }
+
+    %voiceMessagePlayIcon {
+        color: var(--accent-text-color--material-you) !important;
+    }
+}
+
+/* ATTACHMENTS -> VIDEO PLAYER */
+
+%player {
+	border-radius: 0;
+}
+
+%playerMediaBarInteraction {
+	&:hover {
+		%playerMediaBarGrabber {
+			background-color: hsl(var(--accent-hsl--material-you));
+			box-shadow: var(--shadow-2dp);
+		}
+	}
+}
+
+%playerMediaBarInteractionDragging {
+	%playerMediaBarGrabber {
+		background-color: hsl(var(--accent-hsl--material-you));
+		box-shadow: var(--shadow-3dp);
+	}
+}
+
+%playerMediaBarGrabber,
+%playerMediaBarProgress {
+	&,
+	&:before,
+	&:after {
+		background-color: hsl(var(--accent-hsl--material-you));
+	}
+}
+
+/* ATTACHMENTS -> IMAGES */
+
+%mediaAttachmentsContainer,
+%messageAttachmentMediaMosaic {
+	border-radius: 0;
+}
+
+%visualMediaItemContainer,
+%oneByOneGridSingle {
+    border-radius: var(--media-radius);
+}
+
+%imageWrapper {
+    border-radius: 4px;
+
+	&%attachmentEmbedWrapper {
+		border-radius: var(--media-radius);
+	}
+
+	&%imageWrapperModal {
+		--media-radius: 0;
+	}
+}
+
+%oneByOneGridSingle {
+    %imageWrapper {
+        border-radius: var(--media-radius);
+    }
+}
+
+%spoilerContainer {
+	border-radius: var(--media-radius);
+	box-shadow: none !important;
+}

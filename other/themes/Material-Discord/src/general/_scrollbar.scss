@@ -1,0 +1,58 @@
+/*
+ *
+ *	SCROLLBARS
+ *
+ */
+
+::-webkit-scrollbar {
+	width: var(--scrollbar-width) !important;
+	height: var(--scrollbar-width) !important;
+
+	&-track {
+		margin: 0 !important;
+		background: transparent !important;
+		border-radius: calc(var(--scrollbar-width) / 2) !important;
+
+		&-piece {
+			border: 0 solid transparent !important;
+			background-color: transparent !important;
+			margin: 0;
+		}
+	}
+
+	&-thumb {
+		background-color: rgba(var(--scrollbar-color),0.15) !important;
+		border: 0 solid transparent !important;
+		border-radius: calc(var(--scrollbar-width) / 2) !important;
+
+		&:hover {
+			background-color: rgba(var(--scrollbar-color),0.25) !important;
+		}
+
+		&:active {
+			background-color: rgba(var(--scrollbar-color),0.30) !important;
+		}
+	}
+}
+
+%scrollbarThin {
+	&::-webkit-scrollbar {
+		width: var(--scrollbar-thin-width) !important;
+		height: var(--scrollbar-thin-width) !important;
+	}
+}
+
+%guildsWrapper {
+	[class*="scroller"] {
+		&::-webkit-scrollbar {
+			width: 0px !important;
+		}
+	}
+}
+
+%channelTextAreaScrollable {
+	&::-webkit-scrollbar {
+		width: var(--scrollbar-thin-width) !important;
+		height: var(--scrollbar-thin-width) !important;
+	}
+}

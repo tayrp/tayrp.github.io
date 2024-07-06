@@ -1,0 +1,229 @@
+@function important($important) {
+	@return #{if($important, '!important', '')};
+}
+
+@mixin popout-format($important: false) {
+	background-color: var(--popout-color) important($important);
+	border-radius: var(--popout-radius-big) important($important);
+	box-shadow: var(--shadow-3dp) important($important);
+}
+
+@mixin card-format($important: false, $padding: 0, $filled: false, $hover: false) {
+	@if $filled {
+		background-color: var(--card-color-filled) important($important);
+		border: none important($important);
+	} @else {
+		background-color: var(--card-color-outlined) important($important);
+		border: 1px solid var(--card-border-color) important($important);
+	}
+
+	padding: $padding;
+	border-radius: var(--card-radius-big) important($important);
+
+	@if $hover {
+		transition: var(--default-time) var(--default-animation) background-color;
+
+		&:hover {
+			background-color: var(--card-color-hover) important($important);
+		}
+	}
+}
+
+@mixin card-format--header($important: false, $filled: false) {
+	margin-bottom: 0;
+	padding: 16px important($important);
+	background-color: transparent important($important);
+	font-size: 1.25em;
+	line-height: normal;
+	color: var(--card-header-text-color);
+	font-weight: 400;
+	opacity: 1;
+
+	@if $filled == false {
+		border-bottom: 1px solid var(--card-border-color);
+	}
+}
+
+@mixin card-format--header-fix {
+	line-height: normal;
+	font-size: inherit;
+	color: var(--card-header-text-color);
+	font-weight: 400;
+}
+
+@mixin card-format--body($filled: false) {
+	@if $filled {
+		padding: 0 16px 16px;
+	} @else {
+		padding: 16px;
+	}
+}
+
+@mixin card-format--footer($padding: 8px) {
+	padding: $padding;
+	background-color: transparent;
+	border-top: 1px solid var(--card-border-color);
+}
+
+@mixin card-format--list($margin: 16px) {
+	position: relative;
+	border-bottom: none;
+
+	&:after {
+		position: absolute;
+		content: " ";
+		width: calc(100% - (#{$margin} * 2));
+		height: 1px;
+		right: 0;
+		bottom: 0;
+		margin: 0 $margin;
+		background-color: var(--card-border-color);
+	}
+
+	&:last-of-type {
+		&:after {
+			display: none;
+		}
+	}
+}
+
+@mixin new-input-format($important: false, $height: var(--input-height), $max-height: var(--input-height)) {
+	height: $height important($important);
+	max-height: $max-height important($important);
+	padding: var(--input-padding) important($important);
+	background-color: var(--input-color) important($important);
+	border-radius: calc(#{$height} / 2) important($important);
+	border: none;
+}
+
+@mixin input-format($height: var(--input-height), $max-height: var(--input-height)) {
+	position: relative;
+	height: $height;
+	max-height: $max-height;
+	padding: 0;
+	background-color: transparent;
+	border-radius: 0;
+	border: none;
+	border-bottom: 1px solid var(--input-border-color) !important;
+
+	&:before,
+	&:after {
+		position: absolute;
+		content: " ";
+		height: 2px;
+		width: 0;
+		bottom: -1px;
+		background: hsl(var(--accent-hsl--material-you));
+		transition: 300ms ease all;
+		z-index: 2;
+	}
+
+	&:before {
+		left: 50%;
+	}
+
+	&:after {
+		right: 50%;
+	}
+
+	&:focus-within {
+		&:before,
+		&:after {
+			width: 50%;
+		}
+	}
+}
+
+@mixin tab-border($width) {
+	position: relative;
+	background-color: transparent !important;
+	border: none;
+
+	&:after {
+		position: absolute;
+		content: " ";
+		width: #{$width};
+		height: 3px;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: 0 auto;
+		background: var(--tab-border-color);
+		border-radius: 3px 3px 0 0;
+		transition: var(--default-time) ease all;
+	}
+}
+
+@mixin md-ripple($type, $pseudo, $scale, $colored: false) {
+	@if $colored == true {
+		--md-ripple-color: var(--accent-hsl);
+	}
+
+	position: relative;
+
+	&:#{$pseudo} {
+		content: " ";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: hsl(var(--md-ripple-color),0.1);
+		border-radius: 50%;
+		opacity: 0;
+		pointer-events: none;
+		transform: scale(1.2);
+		transition: 300ms ease;
+		z-index: 4;
+	}
+
+	@if $type == hover {
+		&:hover {
+			&:#{$pseudo} {
+				opacity: 1;
+				transform: scale(#{$scale});
+				animation: scale 150ms var(--default-animation), opacity 150ms ease;
+			}
+		}
+
+		&:active {
+			&:#{$pseudo} {
+				background-color: hsl(var(--md-ripple-color),0.2);
+			}
+		}
+	} @else if $type == click {
+		&:active {
+			&:#{$pseudo} {
+				opacity: 1;
+				transform: scale(#{$scale});
+				animation: scale 150ms var(--default-animation), opacity 150ms ease;
+			}
+		}
+	} @else if $type == hover_click {
+		&:hover,
+		&:active {
+			&:#{$pseudo} {
+				opacity: 1;
+				transform: scale(#{$scale});
+				animation: scale 150ms var(--default-animation), opacity 150ms ease;
+			}
+		}
+
+		&:active {
+			&:#{$pseudo} {
+				background-color: hsl(var(--md-ripple-color),0.2);
+			}
+		}
+	}
+}
+
+@mixin add-icon($color, $icon, $type: 'outline') {
+	background-color: #{$color};
+	-webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/#{$type}/#{$icon}.svg);
+	-webkit-mask-repeat: no-repeat;
+}
+
+@mixin remove-caps($font-size, $important: false) {
+	font-size: #{$font-size} important($important);
+	text-transform: none important($important);
+}

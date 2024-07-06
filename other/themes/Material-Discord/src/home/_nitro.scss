@@ -1,0 +1,35 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	NITRO
+ *
+ */
+
+%nitroHomePage {
+	background-color: var(--chat-color);
+	border-top-right-radius: var(--card-radius-big);
+
+	%nitroHomePageScroller {
+		background-color: transparent;
+	}
+}
+
+%nitroSettingsContainer {
+	width: 100%;
+	border-radius: var(--card-radius-big);
+}
+
+%nitroPremiumTierCardsContainerSettings {
+	max-width: unset;
+}
+
+%nitroHomeTierCard {
+	border-radius: var(--card-radius-big);
+}
+
+%nitroHomePerkCard,
+%nitroHomeBigPerkCard,
+%nitroHomeSmallPerkCard {
+	@include card-format(false, 16px, true);
+}

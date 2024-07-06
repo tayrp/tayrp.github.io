@@ -1,0 +1,128 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  NITRO PURCHASE
+ *
+ */
+
+%premiumSkuSelect {
+    @include popout-format(true);
+
+    %titleH4 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    %premiumSkuButtons {
+         padding-top: 16px;
+    }
+}
+
+/* NITRO PURCHASE -> SELECTION AND REVIEW */
+
+%modalRoot {
+    %modalHeader {
+        &%modalHeaderAlt {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            background-image: linear-gradient(var(--popout-color), var(--popout-color));
+            border-bottom: none;
+
+            %modalCloseButton {
+                top: -4px;
+                right: -4px;
+            }
+        }
+    }
+}
+
+%nitroPlanHeaderBackground {
+    width: calc(100% + 8px);
+    top: -24px;
+    left: -24px;
+    right: -24px;
+}
+
+%nitroPlanHeaderBackground,
+%nitroPlanPanningAnimation,
+%nitroPurchaseHeaderImage {
+    border-radius: var(--popout-radius-big);
+}
+
+%breadcrumbsWrapper {
+    padding: 0 24px 16px;
+    background-color: transparent;
+
+    &:after {
+        display: none;
+    }
+}
+
+%nitroPurchaseHeaderContainer {
+    + %breadcrumbsWrapper {
+        padding: 16px 24px 8px;
+    }
+}
+
+%nitroPlanSpinner {
+    background-color: transparent;
+}
+
+%nitroPlanSliderBody {
+    width: 392px;
+    padding-bottom: 0;
+}
+
+%nitroPlanSelectSeparator,
+%nitroPlanSelectSeparatorLower {
+    display: none;
+}
+
+%nitroPlanSelectSeparatorLower + %textXsNormal {
+    margin-top: 12px;
+}
+
+%nitroPlanOptionClickableContainer {
+    padding: 0 12px;
+	background-color: transparent;
+	border-radius: calc(var(--card-radius-big) / 1.65);
+    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+
+    &:hover {
+        background-color: var(--card-color-hover) !important;
+    }
+}
+
+%nitroPlanSelectDivider {
+    display: none;
+}
+
+%nitroPlanWarnBlock {
+    margin-top: 16px;
+    @include card-format(false, 16px, true);
+}
+
+%nitroTable {
+    @include card-format(false, 16px, true);
+
+    %nitroTableDivider {
+        background-color: var(--card-border-color);
+    }
+}
+
+%nitroPlanPaymentSourceWarning {
+    margin-top: 8px;
+    @include card-format(false, 8px, true);
+}
+
+/* NITRO PURCHASE -> PURCHASED INFO */
+
+%purchaseModalInner {
+    width: auto;
+    background-color: transparent;
+}
+
+%purchaseBannerContainer {
+    border-radius: calc(var(--popout-radius-big) / 1.5);
+}

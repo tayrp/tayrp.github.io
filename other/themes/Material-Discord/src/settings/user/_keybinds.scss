@@ -1,0 +1,144 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  USER SETTINGS KEYBINDS
+ *
+ */
+
+%keybindWarningCard {
+	background-color: hsl(var(--warning-hsl),0.3);
+    border-radius: var(--card-radius-big);
+	border: none;
+
+	%keybindWarningCardIcon {
+		color: hsl(var(--warning-hsl));
+	}
+}
+
+%settingsHeaderChildren {
+	%marginBottom20 {
+		+ %settingsHeaderDivider {
+			display: none;
+		}
+	}
+}
+
+%keybindRow {
+	--input-color: var(--input-color-alt);
+
+	padding: 16px;
+	background-color: var(--card-color-filled);
+	border-bottom: 1px solid var(--card-border-color);
+	box-shadow: none !important;
+
+	&:first-child {
+		border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+	}
+
+	&:last-child {
+		margin-bottom: 40px;
+		border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+		border-bottom: none;
+	}
+
+	&:only-child {
+		border-radius: var(--card-radius-big);
+		border-bottom: none;
+	}
+
+	%keybindGroup {
+		margin: 0;
+		padding: 0;
+        border-left: none;
+        border-right: none;
+
+        &:last-of-type {
+            border-radius: 0;
+            border-bottom: none;
+        }
+
+		&:before {
+			display: none;
+		}
+	}
+
+	%removeKeybind {
+		right: -12px
+	}
+
+    %keybindInput {
+		%button {
+			width: auto;
+		}
+    }
+}
+
+%keybindShortcutKey {
+    height: 24px;
+    padding: 0 8px;
+    background-color: var(--card-color-active);
+    border-radius: 12px;
+    border: none !important;
+    box-shadow: none !important;
+    line-height: 24px;
+	color: var(--text-normal);
+
+	g {
+		fill: var(--text-normal);
+	}
+}
+
+/* KEYBINDS -> DEFAULT */
+
+%keybindDefaultGroup {
+    margin: 24px 0 0;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+
+    %keybindDefault {
+        + %keybindDivider {
+            display: block;
+        }
+    }
+
+    %keybindDivider {
+        width: calc(100% - 32px);
+        margin: 0 16px;
+        border-top-color: var(--card-border-color);
+
+        &:last-of-type {
+            display: none;
+        }
+    }
+}
+
+%keybindDefault {
+    padding: 0 16px;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+
+    + %keybindDivider {
+        display: none;
+    }
+}
+
+%keybindDefaultGroupHeader {
+    margin-bottom: 0;
+    padding: 16px 16px 0;
+    @include remove-caps(18px);
+    font-weight: 500;
+
+    + %keybindDivider {
+        display: none;
+    }
+}
+
+%keybindDefaultGroupDescription {
+    margin-bottom: 0;
+    padding: 16px 16px 0;
+
+    + %keybindDivider {
+        display: none;
+    }
+}

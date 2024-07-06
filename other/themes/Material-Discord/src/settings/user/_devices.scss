@@ -1,0 +1,83 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  USER SETTINGS DEVICES
+ *
+ */
+
+%deviceSessions {
+    > div:not([class]) {
+        @include card-format(false, 0, true);
+    }
+}
+
+%deviceOtherSessions {
+    margin-top: 32px;
+    @include card-format(false, 0, true);
+}
+
+%deviceSessions,
+%deviceOtherSessions {
+    %deviceSectionTitle {
+        @include card-format--header(false, true);
+
+        %settingsHeaderTitle {
+            margin-bottom: -8px;
+            @include card-format--header-fix;
+        }
+    }
+}
+
+%deviceSession {
+    position: relative;
+    padding: 16px;
+    gap: 16px;
+    border-bottom: none;
+
+    &:before {
+        position: absolute;
+        content: " ";
+        width: calc(100% - 16px);
+        height: 100%;
+        top: 0;
+        left: 8px;
+        background-color: var(--card-color-hover);
+        border-radius: calc(var(--card-radius-big) / 1.65);
+        opacity: 0;
+        transition: var(--default-time) var(--default-animation) opacity;
+    }
+
+    &:last-of-type {
+        padding-bottom: 24px;
+
+        &:before {
+            height: calc(100% - 8px);
+        }
+    }
+
+    &:hover {
+        &:before {
+            opacity: 1;
+        }
+    }
+
+    > * {
+        z-index: 2;
+    }
+
+    %deviceSessionIcon {
+        background-color: hsl(var(--accent-hsl--material-you));
+        color: var(--accent-text-color--material-you);
+    }
+
+    %deviceSessionInfoRow {
+        &:not(%deviceSessionInfoEyebrow) {
+            color: var(--text-muted);
+        }
+    }
+
+    %deviceSessionInfoEyebrow {
+        @include remove-caps(14px);
+    }
+}

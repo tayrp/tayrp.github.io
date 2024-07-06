@@ -1,0 +1,237 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  SIDEBAR
+ *
+ */
+
+%settingsSidebarScroller {
+	background-color: var(--main-alt);
+}
+
+%settingsSidebarRegion {
+	flex: 0;
+}
+
+%settingsSidebar {
+	--sidebar-width: 240px;
+
+	width: var(--sidebar-width);
+	margin: 0;
+	padding: 60px 0 40px;
+
+	%settingsSide {
+		width: inherit;
+	}
+}
+
+%settingsSidebar {
+    %tabBarItem {
+        width: calc(var(--sidebar-width) - 18px);
+    	height: 32px;
+		margin-left: 12px;
+    	padding: 0 16px;
+    	line-height: 32px;
+    	border-radius: var(--channel-radius);
+    	transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+		box-sizing: border-box;
+
+        &%tabBarItemSelected {
+			background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity)) !important;
+
+    		&:before {
+    			opacity: 1;
+    		}
+
+			%premiumLabel {
+				color: var(--interactive-active) !important;
+			}
+    	}
+
+        svg {
+    		display: none;
+    	}
+
+        %premiumSelectedBackground {
+    		display: none;
+    	}
+
+		%textBadge {
+			background-color: hsl(var(--accent-hsl--material-you)) !important;
+			color: var(--accent-text-color--material-you);
+		}
+    }
+
+    %settingsSideHeader,
+	%bdSidebarHeader {
+		margin: 10px 28px 12px;
+		padding: 0;
+        color: var(--text-muted) !important;
+    }
+
+	%settingsSideHeaderEyebrow,
+	%bdSidebarHeaderLabel {
+		@include remove-caps(0.8em);
+	}
+
+	%bdSidebarHeaderLabel {
+		padding: 0;
+		line-height: 16px;
+		color: inherit;
+	}
+
+    %tabBarSeparator {
+		position: relative;
+		height: 1px;
+		margin: 10px 22px 10px 28px;
+		background: transparent;
+
+		&:before {
+			position: absolute;
+			content: " ";
+			width: 100%;
+			height: 1px;
+			background: rgba(114,118,125,0.3);
+		}
+	}
+}
+
+%textBadge {
+    &[style="background-color: var(--brand-500);"] {
+        background-color: hsl(var(--accent-hsl--material-you)) !important;
+        color: var(--accent-text-color--material-you);
+    }
+}
+
+%settingsContentColumnDefault,
+%settingsContentColumnMinimal,
+%settingsContentColumnWide,
+%settingsCustomColumn,
+%settingsCustomScroller > div {
+	flex: 1 1 auto;
+	min-width: 350px;
+	max-width: 1400px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+%settingsContentColumnDefault,
+%settingsContentColumnWide {
+	padding: 60px;
+}
+
+.customHeader-f9DEJ_ {
+	padding-top: 0;
+}
+
+%settingsCustomContainer {
+    width: auto;
+
+    .auto-2K3UW5 {
+		background-color: var(--main-color) !important;
+		border-top-left-radius: var(--card-radius-big);
+	}
+
+    %settingsCustomScroller {
+        padding-right: 0 !important;
+
+        .content-28mbXd div:not([class])[style="height: 60px;"] {
+			height: 0 !important;
+		}
+
+        > div {
+			position: relative;
+			min-width: 350px;
+			max-width: 1400px;
+			margin: 0 auto 60px;
+			padding: 60px 97px 60px 60px !important;
+
+            > div:not([class]):first-child {
+                //display: none;
+            }
+		}
+
+		> %settingsCustomHeader {
+			padding: 0;
+		}
+
+        %settingsCustomHeader {
+            padding-top: 0;
+        }
+    }
+}
+
+.card-2ART2V:before {
+	margin: 0 60px;
+}
+
+%settingsCustomColumn,
+%settingsContentRegion div[role="tabpanel"] {
+	+ %settingsToolsContainer {
+		position: absolute;
+		width: 60px;
+		height: 60px;
+		right: 0;
+
+		%settingsTools {
+			position: absolute;
+			width: 36px;
+			right: 0;
+		}
+	}
+}
+
+%settingsContentColumnMinimal {
+	padding: 60px 80px 80px;
+}
+
+%settingsContentSidebarScrollable .flexChild-3PzYmX[style*='padding: 60px 15px 80px 20px;'] {
+	padding: 60px 8px 40px 0 !important;
+}
+
+%settingsContentSidebarScrollable + .content-2ssVKB[style*='padding: 60px 0px 80px 20px;'] {
+	padding: 0 0 0 20px !important;
+}
+
+%settingsContentSidebarScrollable {
+    + .content-2ssVKB {
+        position: relative;
+    	width: calc(100% - 232px);
+    	left: 232px;
+    	right: 0;
+    	margin-left: 0;
+    	padding: 0 !important;
+    }
+
+    %settingsSide %settingsSideHeader:first-child {
+    	margin: 0 0 8px 0;
+    	padding: 0 0 0 10px !important;
+    }
+}
+
+%settingsSocialLinks,
+%settingsDiscordInfo {
+	padding: 8px 12px 8px 26px
+}
+
+/* SIDEBAR -> LIGHT THEME WITH DARK SIDEBAR */
+
+%settingsSidebarRegion%themeDark {
+    &:after {
+        position: absolute;
+        content: " ";
+        width: calc(100vw - 246px);
+        height: 100%;
+        top: 0;
+        right: 0;
+        background-color: var(--main-alt);
+        pointer-events: none;
+        z-index: -1;
+    }
+}
+
+%settingsContentRegion {
+    z-index: 2;
+}

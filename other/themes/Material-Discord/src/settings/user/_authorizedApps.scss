@@ -1,0 +1,46 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  USER SETTINGS AUTHORIZED APPS
+ *
+ */
+
+%formNotice {
+    margin-bottom: 32px;
+    padding: 0;
+
+    %formNoticeTitle {
+        @include card-format--header(false, true);
+
+        + %formNoticeBody {
+            @include card-format--body(true);
+        }
+    }
+
+    &%settingsCard {
+        margin-top: 16px;
+    }
+}
+
+%formNoticeBody {
+    padding: 16px;
+}
+
+%authedApp {
+    margin-bottom: 16px;
+    padding: 16px;
+
+    %marginBottom20 {
+        %textSmSemibold {
+        	font-size: 1.25em;
+        	line-height: normal;
+        	color: var(--card-header-text-color);
+        	font-weight: 400;
+        }
+    }
+
+    %button {
+        font-size: 0.75em;
+    }
+}

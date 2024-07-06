@@ -1,0 +1,227 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  USER SETTINGS PROFILES
+ *
+ */
+
+%settingsProfileTabBar {
+	%settingsProfileTabBarItem {
+		border-bottom: none;
+
+		&%settingsProfileTabBarItemSelected {
+			@include tab-border(90%);
+		}
+	}
+}
+
+%settingsProfilesBaseLayout {
+	gap: 16px;
+}
+
+%settingsProfileNotice {
+	@include card-format(false, 8px);
+}
+
+%nitroUpsellButtonInner {
+	display: grid;
+	grid-template-columns: 30px 1fr;
+}
+
+%settingsUpsellOverlayContainer,
+%settingsUpsellTextContainer {
+	border-radius: var(--card-radius-big);
+}
+
+%settingsUpsellOverlayContainer {
+	overflow: hidden;
+}
+
+%settingsProfileShopCard {
+    border-radius: var(--card-radius-big);
+}
+
+%settingsProfileCard {
+	--input-color: var(--input-color-alt);
+
+	margin-bottom: 16px;
+	@include card-format(false, 16px, true);
+
+	&:last-child {
+		&:not(%settingsProfileCardWithDivider) {
+			padding-bottom: 16px;
+		}
+	}
+
+	&%settingsProfileCardHideDivider {
+        padding-bottom: 16px;
+    }
+
+	&%settingsPreviewProfileThemes {
+		max-width: unset;
+	}
+
+	&%settingsProfileThemeSectionPremiumBorder {
+		margin: 0 0 16px;
+		background: linear-gradient(var(--main-color),var(--main-color)) padding-box,linear-gradient(45deg,hsl(269,calc(var(--saturation-factor, 1)*52.7%),52.7%),hsl(325,calc(var(--saturation-factor, 1)*31.7%),51.8%)) border-box;
+		border-width: 2px;
+
+		+ %settingsProfileCardDivider {
+			display: none;
+		}
+
+		.inlineUpsell-3zPTgw {
+			@include card-format(false, 16px);
+		}
+	}
+
+	&%settingsProfilePreview {
+		%settingsProfileHeader {
+			display: none;
+		}
+	}
+
+	%settingsProfileHeader {
+		margin: -16px -16px 0;
+		@include card-format--header(false, true);
+
+		%settingsProfileHeaderText {
+			@include card-format--header-fix;
+		}
+	}
+
+	%settingsProfileRemoveButton {
+		margin-left: 16px;
+	}
+}
+
+%settingsProfileCustomizationSectionBorder {
+    margin: -16px;
+    background: linear-gradient(var(--card-color-filled),var(--card-color-filled)) padding-box,linear-gradient(45deg,hsl(269,calc(var(--saturation-factor, 1)*52.7%),52.7%),hsl(325,calc(var(--saturation-factor, 1)*31.7%),51.8%)) border-box;
+    border-radius: var(--card-radius-big);
+
+    %settingsProfileCustomizationBackground {
+        padding: 16px;
+    }
+
+    %settingsProfileNitroWheel {
+        height: 22px;
+    }
+}
+
+%settingsProfileBioTextArea {
+	--input-padding: 0 12px;
+
+	@include new-input-format(true, 136px, 136px);
+	border-radius: 19px !important;
+
+	%channelTextAreaWithoutAttachment {
+		padding: 12px 0;
+	}
+}
+
+%settingsProfileBannerPreview {
+	@include popout-format;
+
+	%avatarUploaderInner {
+		background-color: transparent;
+		border: none;
+		box-shadow: var(--shadow-3dp);
+
+		&:focus-within,
+		&:hover {
+			%avatarUploaderHint {
+				background-color: rgba(0,0,0,0.5);
+				border-radius: 50%;
+			}
+		}
+	}
+
+	%userPopoutHeaderTop {
+		padding: 64px 12px 12px;
+		border-bottom: 1px solid var(--card-border-color);
+	}
+
+	%userPopoutInfo {
+		padding: 12px;
+	}
+
+	%userPopoutDivider {
+		display: none;
+	}
+
+	%userPopoutAboutMeTitle,
+	%userPopoutAboutMeFakeTitle {
+		@include remove-caps(14px);
+	}
+
+	%userPopoutFakeActivityIcon {
+		background-color: hsl(var(--accent-hsl--material-you));
+		border-radius: 50%;
+	}
+}
+
+%settingsProfileDecorationGridItem {
+    @include card-format(false, 0, true, true);
+	transition: var(--default-time) var(--default-animation) box-shadow;
+
+	&%settingsProfileDecorationGridItemSelected {
+		box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you));
+	}
+}
+
+%settingsProfileDecorationPreview {
+    @include card-format(false, 0, true);
+}
+
+%settingsProfileSmallDecorationPreviewsContainer {
+    @include card-format(false, 8px, true);
+}
+
+%settingsProfileEffectDescriptionBorderWithGradient {
+    border-radius: var(--card-radius-big);
+
+    %settingsProfileEffectDescriptionContainer {
+        background-color: var(--card-color-filled);
+        border-radius: calc(var(--card-radius-big) - 2px);
+    }
+}
+
+%settingsShopPreviewContainer {
+    background: linear-gradient(var(--card-color-filled), var(--card-color-filled)) padding-box, var(--custom-premium-colors-premium-gradient-tier-2-diagonal) border-box;
+    border-radius: var(--card-radius-big);
+
+    %settingsShopPreviewBanner {
+		background-color: var(--card-color-active);
+        border-radius: calc(var(--card-radius-big) - 2px);
+    }
+}
+
+/* USER SETTINGS PROFILES -> TRY OUT NITRO SECTION */
+
+%settingsProfileTryItOutSection {
+    position: relative;
+    margin: 16px 0 0;
+    padding: 0;
+    border-radius: var(--card-radius-big);
+    border: none;
+
+    &:before {
+        position: absolute;
+        content: " ";
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        top: 0;
+        left: 0;
+        background: linear-gradient(var(--main-alt),var(--main-alt)) padding-box,linear-gradient(45deg,hsl(269,calc(var(--saturation-factor, 1)*52.7%),52.7%),hsl(325,calc(var(--saturation-factor, 1)*31.7%),51.8%)) border-box;
+        border-radius: inherit;
+        border: 2px solid transparent;
+    }
+
+    %settingsProfilePremiumBackground {
+        padding: 16px;
+        background: var(--card-color-filled);
+        border-radius: var(--card-radius-big);
+    }
+}

@@ -1,0 +1,32 @@
+/*
+ *
+ *  BETTERDISCORD MODALS
+ *
+ */
+
+%bdModalHeader {
+    padding: 24px 24px 16px;
+
+    %bdModalHeaderPrimary {
+        font-size: 22px;
+        font-weight: 400;
+        color: var(--header-primary);
+    }
+}
+
+%bdModalContent {
+    padding: 0 24px;
+    color: var(--text-normal);
+}
+
+%bdModalFooter {
+    padding: 24px;
+    background-color: transparent;
+
+    %bdButton {
+        min-height: var(--button-height);
+        height: var(--button-height);
+        padding: var(--button-padding);
+        font-size: 14px;
+    }
+}

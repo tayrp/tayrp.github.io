@@ -1,0 +1,24 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  LISTENING ALONG CHANNEL POPOUT
+ *
+ */
+
+%listeningAlongPopout {
+	@include popout-format;
+
+	%activityHeaderText {
+		@include remove-caps(14px);
+		font-weight: 500;
+	}
+
+	%listeningAlongCountContainer {
+		background-color: var(--card-button-color);
+	}
+
+	%listeningAlongPopoutActivity {
+		border-radius: 50%;
+	}
+}

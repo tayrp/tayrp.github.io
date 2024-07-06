@@ -1,0 +1,113 @@
+/*
+ *
+ *	SELECT MENUS
+ *
+ */
+
+%selectMenuWrapper {
+	%selectMenu {
+		padding-right: calc(var(--icons-width) + 12px);
+
+		&%selectMenuMulti {
+			padding-bottom: 0;
+		}
+	}
+}
+
+%selectMenu {
+	height: var(--input-height);
+	padding: var(--input-padding);
+	border-radius: var(--input-radius) !important;
+	border: none;
+
+	&%selectMenuMulti {
+		min-height: var(--input-height);
+		height: auto;
+
+		> %selectMenuMulti {
+			min-height: inherit;
+		}
+	}
+
+	&%selectMenuFilled {
+		background-color: var(--input-color);
+	}
+
+	%selectMenuSearchInput {
+		&::-webkit-input-placeholder {
+			font-family: var(--app-font);
+			color: var(--input-placeholder-color);
+		}
+
+		&%selectMenuMulti {
+			height: 28px;
+			margin-top: 2px;
+		}
+	}
+}
+
+%selectMenuIconsContainer {
+	height: var(--input-height);
+
+	> div {
+		height: var(--icons-width);
+	}
+}
+
+%selectMenuPopout {
+	margin: 4px 0;
+	background-color: var(--popout-color);
+	border-radius: var(--popout-radius) !important;
+	border: none;
+	box-shadow: var(--shadow-3dp);
+
+	%selectMenuOption {
+		gap: 8px;
+		color: var(--menu-item-text-color);
+		transition: var(--default-time) var(--default-animation) background-color;
+
+		&:hover {
+			background-color: var(--menu-item-hover) !important;
+		}
+
+		&[aria-selected=true] {
+			background-color: var(--menu-item-select) !important;
+
+			%selectMenuOptionSelectedIcon {
+				color: hsl(var(--accent-hsl--material-you));
+
+				circle {
+					fill: var(--accent-text-color--material-you);;
+				}
+			}
+		}
+
+		%selectMenuDeviceOption {
+			gap: 8px;
+		}
+
+		%selectMenuDeviceOptionLabel {
+			margin-right: 0;
+		}
+	}
+}
+
+/* SELECT MENUS -> PILLS */
+
+%optionPillButton {
+    --button-height: 28px;
+    --button-padding: 0 8px;
+
+    &%buttonFilled {
+        --button-background: transparent;
+        --button-outline: 1px solid var(--text-muted);
+    }
+
+    &:after {
+        display: none;
+    }
+
+    %optionPill {
+        background-color: transparent;
+    }
+}

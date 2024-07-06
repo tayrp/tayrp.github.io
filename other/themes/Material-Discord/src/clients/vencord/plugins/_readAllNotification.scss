@@ -1,0 +1,19 @@
+/*
+ *
+ *  VENCORD PLUGIN - ReadAllNotification
+ *
+ */
+
+%guildsWrapper {
+    %guilds {
+        text-align: center;
+    }
+
+    %button {
+        --button-height: 22px;
+        --button-padding: 0 4px;
+
+        width: auto;
+        font-size: 12px !important;
+    }
+}

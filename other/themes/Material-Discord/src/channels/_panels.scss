@@ -1,0 +1,292 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  CHANNELS LIST PANELS
+ *
+ */
+
+ %channelsContainer {
+     &:after {
+         position: absolute;
+         content: " ";
+         width: calc(100% + 16px);
+         height: 40px;
+         left: -8px;
+         bottom: 0;
+         background: linear-gradient(0deg, var(--main-color) 0%, transparent 50%);
+         pointer-events: none;
+         z-index: 1;
+     }
+ }
+
+%panels {
+    position: relative;
+	margin: -12px 8px 12px 12px;
+	background-color: transparent !important;
+
+    > div:not(:empty) {
+        &:first-of-type {
+            border-top-left-radius: var(--sidebar-panel-radius-big);
+            border-top-right-radius: var(--sidebar-panel-radius-big);
+
+            %questPanelContentWrapper {
+                --sidebar-panel-radius-big: var(--popout-radius-big) !important;
+            }
+
+            %connectionPanel {
+                border-top-left-radius: inherit;
+                border-top-right-radius: inherit;
+            }
+        }
+
+        &:last-of-type {
+            border-bottom-left-radius: var(--sidebar-panel-radius-big);
+            border-bottom-right-radius: var(--sidebar-panel-radius-big);
+        }
+    }
+
+    > div:empty {
+        &:first-of-type {
+            + %accountPanel {
+                border-top-left-radius: var(--sidebar-panel-radius-big);
+                border-top-right-radius: var(--sidebar-panel-radius-big);
+            }
+        }
+    }
+
+    %panelButton {
+        &:hover {
+            background-color: transparent !important;
+        }
+
+        &%panelButtonEnabled {
+            @include md-ripple(hover, after, 1.0);
+        }
+    }
+}
+
+%spotifyPanel,
+%connectionPanel,
+%activityPanel,
+%listeningAlongPanel {
+    margin-bottom: 2px;
+    background: var(--sidebar-panel-color);
+    border-radius: var(--sidebar-panel-radius-small);
+    border-bottom: none !important;
+}
+
+%activityPanel {
+    background: var(--sidebar-panel-color) !important;
+
+    %activityPanelGameIcon {
+        border-radius: 50%;
+    }
+}
+
+%connectionPanel {
+    %connectionPanelActionButtons {
+        %button {
+            --button-padding: 0 12px;
+        }
+    }
+
+    %connectionPanelMaskSecondary {
+        border-color: var(--sidebar-panel-color);
+    }
+}
+
+%connectionPanelActionButtons {
+    %button {
+        path {
+            &[fill] {
+                fill: currentColor !important;
+            }
+
+            &[stroke] {
+                stroke: currentColor !important;
+            }
+        }
+    }
+}
+
+%accountPanel {
+    width: 100%;
+    height: 44px !important;
+    margin-bottom: 0 !important;
+    background: var(--status-picker-color) !important;
+    border-radius: var(--sidebar-panel-radius-small);
+    box-sizing: border-box;
+
+    %accountPanelAvatarWrapper {
+        min-width: 0 !important;
+        margin-left: 0;
+        padding-left: 0;
+        flex-grow: 1;
+        margin-right: 0;
+
+        &:hover {
+            background-color: transparent;
+            border-radius: 0;
+        }
+    }
+
+    %accountPanelNameTag {
+		margin-right: 2px;
+	}
+
+    %accountPanelDiscriminator {
+		line-height: 14px;
+	}
+
+    %panelButton {
+        color: var(--interactive-normal) !important;
+
+        &:hover {
+            color: var(--interactive-hover) !important;
+        }
+    }
+}
+
+%channelUnreadPillBottom {
+    bottom: 12px;
+}
+
+%activitiesPanel {
+    width: calc(100% - 16px);
+    margin: 0 8px 20px;
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius-big);
+    box-shadow: var(--shadow-3dp);
+
+    %activitiesPanelContent {
+        padding: 8px 0;
+
+        %textSmBold {
+            color: var(--header-primary) !important;
+        }
+
+        %textXsNormal {
+            color: var(--text-normal) !important;
+        }
+
+        %button {
+            --button-padding: 0 12px;
+        }
+
+        %buttonInverted {
+            --button-background: hsl(var(--button-link-accent-color-color),0.15);
+            --button-text-color: var(--button-link-accent-text-color);
+        }
+    }
+
+    %activitiesPanelVideo {
+        margin-top: -8px;
+        border-radius: var(--popout-radius-big);
+    }
+}
+
+/* CHANNELS LIST PANELS -> QUEST */
+
+%questPanelWrapper {
+    margin-bottom: 2px;
+    background-color: var(--sidebar-panel-color) !important;
+    border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
+}
+
+%questPanelContentWrapper {
+    --sidebar-panel-radius-big: var(--sidebar-panel-radius-small);
+
+    background-color: var(--sidebar-panel-color) !important;
+    border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
+    overflow: hidden;
+    transition: var(--default-time) var(--default-animation) border-radius;
+
+    &:after {
+        box-shadow: none !important;
+    }
+
+    &%questPanelContentWrapperExpanded {
+        background-image: none !important;
+        border-top-left-radius: var(--popout-radius-big);
+        border-top-right-radius: var(--popout-radius-big);
+
+        %questPanelInnerWrapper {
+            padding: 4px 8px !important;
+        }
+
+        %questPanelHeaderWrapper {
+            border-radius: calc(var(--popout-radius-big) / 1.5) !important;
+        }
+    }
+}
+
+%questPanelInnerWrapper {
+    padding: 8px !important;
+}
+
+%questPanelBackgroundWrapper {
+    display: none;
+}
+
+%questPanelHeaderWrapper,
+%heroAssetWrapper {
+    border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small) !important;
+}
+
+%heroAssetWrapper {
+    filter: none !important;
+}
+
+%questLegibilityGradient {
+    background: var(--sidebar-panel-color);
+    border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
+}
+
+%heroAssetDarken,
+%heroAssetTint {
+    background-color: var(--sidebar-panel-color) !important;
+    border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
+}
+
+/* CHANNELS LIST PANELS -> QUEST ACCEPTED */
+
+%questPanelContentCollapsedAccepted {
+    padding: 12px 8px;
+}
+
+%questPanelPostEnrollmentBackground {
+    background-image: none !important;
+    background-color: var(--sidebar-panel-color);
+    border-radius: 0;
+    border-top: none;
+}
+
+%questPanelStepsWrapper {
+    margin-bottom: 0;
+    background-color: var(--card-color-alt);
+    border-radius: var(--card-radius-big);
+    border: none;
+}
+
+%questPanelStepWrapperComplete {
+    %questPanelStepIconWrapper {
+        background-color: hsl(var(--accent-hsl--material-you));
+        border-color: hsl(var(--accent-hsl--material-you));
+    }
+
+    %questPanelStepConnector {
+        &:before {
+            background-color: hsl(var(--accent-hsl--material-you));
+            box-shadow: 0 0 6px hsl(var(--accent-hsl--material-you));
+        }
+    }
+}
+
+%questPanelStepIconWrapper {
+    border-color: var(--card-border-color);
+
+    %questPanelStepIcon path {
+        fill: var(--accent-text-color--material-you);
+    }
+}

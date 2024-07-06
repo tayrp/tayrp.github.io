@@ -1,0 +1,161 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	DISCORD SHOP
+ *
+ */
+
+%shopScroll,
+%shopPageWrapper,
+%shopContainer {
+    background-color: var(--main-alt);
+}
+
+%shopHomeContainer {
+    background-color: var(--main-color);
+    overflow: hidden;
+
+    %headerBar%headerBarThemed {
+        background-color: var(--main-color) !important;
+    }
+}
+
+%shopScrollBackgroundPrimary,
+%shopPageWrapperBackgroundPrimary {
+    background-color: var(--main-color);
+}
+
+%shopCountDownWrapper {
+    box-shadow: var(--shadow-3dp) !important;
+}
+
+%shopShyBanner {
+    border-radius: var(--card-radius-big);
+    box-shadow: none;
+}
+
+%shopHeroBanner,
+%shopBannerBackground,
+%shopBannerCard {
+    border-radius: var(--card-radius-big);
+}
+
+%shopHeroBanner {
+    margin-top: 0;
+}
+
+%shopBanner {
+    border-radius: var(--card-radius-big);
+    outline: none;
+}
+
+%shopItemTypeTitle {
+    @include remove-caps(16px);
+    font-weight: 500;
+}
+
+%shopCard {
+    background: var(--card-color-filled) !important;
+    border-radius: var(--card-radius-big);
+    border: none;
+    box-shadow: none !important;
+    transition: var(--default-time) var(--default-animation) background;
+
+    &:hover {
+        background: var(--card-color-active) !important;
+        top: unset;
+    }
+
+    %textLgBold {
+        font-weight: 400;
+        font-size: 24px;
+        color: var(--header-primary) !important;
+    }
+
+    %shopCardBackground {
+        background-color: transparent !important;
+    }
+
+    %shopCardDescription,
+    %shopCardPriceTag {
+        color: var(--text-normal) !important;
+    }
+
+    %shopCardPremiumIcon {
+        path {
+            fill: currentColor;
+        }
+    }
+
+    %buttonFilled%buttonBrand {
+        background: var(--button-background) !important;
+    }
+
+    %shopGiftButtonInner,
+    %shopPreviewButtonInner {
+        max-width: none;
+        max-height: none;
+    }
+}
+
+%shopCardTextProfileEffect {
+    &:before {
+        background: linear-gradient(180deg, transparent, transparent, var(--card-color-filled)) !important;
+    }
+}
+
+%shopPreviewModalContent {
+    padding: 0 !important;
+    border-radius: var(--popout-radius-big) !important;
+
+    &::-webkit-scrollbar {
+        --scrollbar-width: 0;
+        --scrollbar-thin-width: 0;
+    }
+
+    %shopCollectibleInfoContainer {
+        border-radius: var(--popout-radius-big);
+
+        %buttonFilled {
+            background: var(--button-background) !important;
+
+            %buttonContents {
+                svg {
+                    height: 24px;
+                }
+            }
+        }
+    }
+
+    %shopCollectibleCategoryBanner {
+        width: calc(100% + var(--popout-radius-big));
+        left: calc(var(--popout-radius-big) * -1);
+    }
+}
+
+%shopChatPreview {
+    background-color: var(--popout-color) !important;
+    box-shadow: var(--shadow-3dp);
+
+    %messagesWrapper {
+        margin-top: 0;
+        margin-left: 46px;
+        border-radius: var(--message-radius);
+
+        &:before,
+        &:after {
+            display: none;
+        }
+
+        %avatarLarge {
+            margin-top: -2px;
+            margin-left: -66px;
+        }
+    }
+
+    %shopMockInput {
+        background-color: var(--input-color);
+        border-radius: 20px;
+    }
+}

@@ -1,0 +1,268 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	MESSAGES POPOUT
+ *
+ */
+
+%messagesPopoutWrap,
+%recentMentionsPopout {
+	max-height: 80vh !important;
+	@include popout-format;
+	animation: top-pop-out 400ms var(--default-animation);
+
+	%messagesWrapper {
+		&%messageCozy {
+			overflow: visible;
+
+			&:before,
+			&:after {
+				display: none;
+			}
+
+			%avatarLarge {
+				left: -50px;
+			}
+
+			%embedContainer {
+				overflow: hidden;
+			}
+		}
+	}
+}
+
+body:active {
+	%messagesPopoutWrap,
+	%recentMentionsPopout {
+		&:not(:active) {
+			opacity: 0;
+			transition: 150ms ease all;
+		}
+	}
+}
+
+%messagesPopoutHeader {
+	height: auto;
+	min-height: unset;
+	padding: 24px 24px 0;
+	background-color: transparent;
+	box-shadow: none;
+
+	%headingMdMedium,
+	%textLgSemibold {
+		line-height: 24px;
+		font-size: 20px;
+		font-weight: 400;
+		color: var(--header-primary);
+	}
+
+	%headingMdMedium {
+		margin-bottom: 16px;
+	}
+
+	%messagesPopoutExpandedInboxHeader {
+		padding-bottom: 0;
+	}
+
+	%messagesPopoutExpandedTabSection {
+		height: 48px;
+	}
+
+	%topPill {
+		height: 48px;
+	}
+
+	%messagesPopoutHeaderFriendRequestButton,
+	%messagesPopoutHeaderButton:not(%messagesPopoutHeaderButtonDisabled) {
+		background-color: var(--card-button-color);
+		transition: var(--default-time) var(--default-animation) background-color;
+
+		&:hover {
+			background-color: var(--card-button-color-hover);
+		}
+	}
+}
+
+%messagesPopoutContentContainer {
+	background-color: transparent;
+}
+
+%messagesPopoutRow {
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:hover {
+		background-color: var(--menu-item-hover);
+	}
+}
+
+/* MESSAGES POPOUT -> FRIEND REQUEST ROW */
+
+%messagesPopoutFriendRequestContainer {
+	%button {
+		padding: var(--button-padding);
+
+		%textSmMedium {
+			line-height: var(--button-height);
+		}
+	}
+
+	%buttonGreen {
+		margin-right: 8px;
+
+		%textSmMedium {
+			color: var(--button-text-color) !important;
+		}
+	}
+
+	%buttonPrimary {
+		--button-padding: 0 12px;
+		--button-background: transparent !important;
+		--button-text-color: var(--button-link-accent-text-color) !important;
+
+		--accent-button-action-hover: 0.14;
+		--accent-button-action-active: 0.21;
+
+		&:after {
+			background-color: hsl(var(--button-link-accent-color));
+		}
+
+		%textSmMedium {
+			font-size: 1em;
+			color: var(--button-text-color) !important;
+		}
+	}
+}
+
+/* MESSAGES POPOUT -> INNER */
+
+%messagesPopoutInner {
+	padding: 0 calc(24px - var(--scrollbar-thin-width)) 24px 24px !important;
+
+	%pinnedMessageGroupWrapper {
+		margin: 0 0 16px;
+		background-color: transparent;
+		border: none;
+		overflow: visible;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		%messagesWrapper {
+			margin: 0 0 0 50px;
+			padding: var(--message-padding-top) var(--message-padding-side) !important;
+			background-color: var(--message-color-alt) !important;
+			border-radius: var(--message-radius);
+		}
+
+		%pinnedActionButtons {
+			top: 22px;
+			right: 12px;
+
+			%pinnedJumpButton {
+				border-radius: 9px;
+			}
+		}
+	}
+}
+
+%messagesPopoutFooter {
+	background-color: transparent;
+	border-top: 1px solid var(--popout-header-border);
+}
+
+%messagesPopoutChannelHeader {
+	padding: 12px 16px;
+	background-color: var(--message-color-alt);
+	border-radius: var(--message-radius) var(--message-radius) 0 0;
+	border-bottom: 1px solid var(--card-border-color);
+
+	%messagesPopoutChannelHeaderButton {
+		background-color: var(--menu-item-hover);
+
+		&:hover {
+			background-color: var(--menu-item-select);
+		}
+	}
+}
+
+/* MESSAGES POPOUT -> RECENT MENTIONS */
+
+%recentMentionsContainer {
+	padding-left: 0;
+	padding-right: 0;
+
+	&:first-child {
+		margin-top: 16px;
+	}
+
+	%recentMentionsMessagesContainer {
+		margin-left: 0;
+		background-color: var(--message-color-alt);
+		border-radius: 0 0 var(--message-radius) var(--message-radius);
+
+		%messagesWrapper {
+			--message-color: var(--message-color-hover);
+
+			&%messageCozy {
+				margin: 0 0 0 66px;
+				border-radius: var(--message-radius);
+				overflow: visible;
+			}
+		}
+	}
+}
+
+%recentMentionsHeader {
+	border-bottom: 1px solid var(--popout-header-border);
+}
+
+%recentMentionsJumpButton {
+	top: 22px;
+	right: 22px;
+	padding: 4px 6px;
+	border-radius: 12px;
+}
+
+/* MESSAGES POPOUT -> UNREADS */
+
+%unreadTutorial {
+	@include card-format(false, 16px);
+}
+
+%unreadChannel {
+	%messagesPopoutChannelHeader {
+		padding: 12px 16px 12px 42px;
+
+		&:only-child {
+			border-radius: var(--message-radius);
+			border-bottom: none;
+		}
+
+		%unreadCollapseButton {
+			left: 12px;
+			cursor: pointer;
+		}
+	}
+}
+
+%unreadMessages {
+	padding: 16px;
+	background-color: var(--message-color-alt);
+	border-radius: 0 0 var(--message-radius) var(--message-radius);
+
+	%messagesWrapper {
+		&%messageCozy {
+			overflow: visible;
+
+			&%messageGroupStart {
+				margin: 16px 0 0 48px;
+			}
+
+			&:not(%messageGroupStart) {
+				margin: -8px 0 0 48px;
+			}
+		}
+	}
+}

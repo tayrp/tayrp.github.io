@@ -1,0 +1,59 @@
+/*
+ *
+ *  VENCORD PLUGIN - ReviewDB
+ *
+ */
+
+%userProfileOuterThemed {
+    %reviewDBView {
+        %messagesWrapper {
+            --message-color: var(--profile-body-background-hover);
+            --message-color-hover: var(--profile-body-background-hover);
+        }
+
+        %formText {
+            background-color: var(--profile-body-background-hover);
+        }
+
+        %input {
+            --input-color: var(--profile-body-background-color) !important;
+        }
+    }
+}
+
+%reviewDBView {
+    %messagesWrapper {
+        --message-color: var(--popout-color);
+        --message-color-hover: var(--popout-color);
+
+        margin-left: 52px !important;
+    }
+
+    %avatarLarge {
+        left: -52px !important;
+    }
+}
+
+%reviewDBReviewComment {
+    margin-bottom: 0;
+}
+
+%reviewDBInput {
+    margin-top: 12px !important;
+    background-color: var(--input-color) !important;
+    border-radius: 22px !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    %textAreaPlaceholder {
+        color: var(--input-placeholder-color);
+    }
+
+    %textAreaEditor {
+        color: var(--input-text-color);
+    }
+
+    %channelTextAreaButtonsContainer {
+        margin-right: 0 !important;
+    }
+}

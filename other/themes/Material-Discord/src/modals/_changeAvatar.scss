@@ -1,0 +1,30 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  CHANGE AVATAR
+ *
+ */
+
+%settingsProfileOptionBox {
+    @include card-format(false, 16px, true, true);
+
+    &:hover {
+        border-color: hsl(var(--accent-hsl--material-you));
+    }
+}
+
+%settingsProfileContentCircle {
+    background-color: hsl(var(--accent-hsl--material-you));
+
+    %settingsProfileUploadIcon {
+        color: var(--accent-text-color--material-you);
+    }
+}
+
+%settingsProfileImageSpecifications {
+    &:empty {
+        margin-top: 0;
+        padding: 0;
+    }
+}

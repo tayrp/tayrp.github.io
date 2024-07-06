@@ -1,0 +1,59 @@
+/*
+ *
+ *  USER SETTINGS NITRO
+ *
+ */
+
+%settingsNitroIncomingContainer {
+    border-radius: var(--card-radius-big);
+}
+
+%settingsNitroCtaWrapper {
+    border-radius: var(--card-radius-big);
+
+    %settingsNitroCtaButtonInner {
+        color: var(--button-text-color);
+    }
+}
+
+%nitroSettingsFloatingInnerWrapper {
+    background-color: var(--popout-color);
+    box-shadow: var(--shadow-3dp);
+}
+
+%settingsNitroTierCard {
+    border-radius: var(--card-radius-big);
+}
+
+%settingsNitroGiftCard {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+}
+
+/* USER SETTINGS -> NITRO -> SERVER BOOST */
+
+%settingsServerBoostBannerGradient {
+    border-radius: var(--card-radius-big);
+}
+
+%settingsServerBoostBannerWave {
+    fill: var(--card-color-filled);
+}
+
+%settingsServerBoostBannerSubtextWrapper {
+    margin-top: 30px;
+}
+
+%settingsServerBoostGuildContainer,
+%settingsServerBoostGuildNotSeenWrapper {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+}
+
+%settingsServerBoostPerksWrapper {
+    border-radius: var(--card-radius-big);
+
+    %settingsServerBoostPerksCard {
+        border-radius: var(--card-radius-big);
+    }
+}

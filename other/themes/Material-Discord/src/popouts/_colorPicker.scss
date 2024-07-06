@@ -1,0 +1,38 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  COLOR PICKER
+ *
+ */
+
+%colorPickerCustom {
+    @include popout-format(true);
+    border: none !important;
+}
+
+%colorPickerSuggestedColor {
+    border-radius: 16px;
+}
+
+%colorPickerRow {
+    overflow: visible;
+}
+
+%colorPickerSwatch {
+    border-radius: 10px;
+
+    &%colorPickerSwatchCustom,
+    &%colorPickerSwatchDefault {
+        border-radius: var(--card-radius-big);
+    }
+}
+
+%colorPickerDefaultContainer,
+%colorPickerCustomContainer {
+    border-radius: var(--card-radius-big);
+}
+
+%colorSwatch {
+    border-radius: var(--card-radius-big);
+}
