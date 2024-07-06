@@ -5,15 +5,15 @@
  * @author CapnKitten
  *
  * @website https://tay.is-a.dev/
- * @source https://github.com/tayrp/taycord
+ * @source https://github.com/tayrp/tayrp.github.io/tree/main/other/themes/Material-Discord
  * @donate https://paypal.me/mystixmew
  * @invite 2UH5dYZck3
  */
 
-@import url(https://tay.is-a.dev/other/themes/Material-Discord-source.css);
+@import url(https://tay.is-a.dev/other/themes/Material-Discord/css/source.css);
 
 /* Material You addon */
-@import url(https://tay.is-a.dev/other/themes/Material-Discord-material-you-source.css);
+@import url(https://github.com/tayrp/tayrp.github.io/blob/main/other/themes/Material-Discord/css/addons/material-you/source.css);
 
 /* MATERIAL YOU DARK THEME SETTINGS */
 .theme-dark {
