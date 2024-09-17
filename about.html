@@ -59,35 +59,34 @@
 						</video>
 						
 						<label for="volumeControl">Volume:</label>
-						<input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.15">
-						<span id="volumePercentage">15%</span>						
+						<input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.01">
+						<span id="volumePercentage">1%</span>											
 			
 						<script>
 							var video = document.getElementById("aboutvideo");
 							var btn = document.getElementById("aboutpauseBtn");
 							var volumeControl = document.getElementById("volumeControl");
-							var video = document.getElementById("aboutvideo");
-							var volumeControl = document.getElementById("volumeControl");
 							var volumePercentage = document.getElementById("volumePercentage");
-							video.volume = 0.15;
-							volumeControl.addEventListener("input", function() {
- 								video.volume = volumeControl.value;
-    							var percentage = Math.round(volumeControl.value * 100);
-    								volumePercentage.innerHTML = percentage + "%";
-								});
-							video.volume = 0.1;
+
+						// Initialize the video volume and percentage display
+							video.volume = volumeControl.value; // Set initial volume based on the slider value
+							volumePercentage.innerHTML = Math.round(volumeControl.value * 100) + "%"; // Set initial percentage
+
 							function togglePause() {
-								if (video.paused) {
-									video.play();
-									btn.innerHTML = "⏸️";
-								} else {
-									video.pause();
-									btn.innerHTML = "▶️";
-								}
+							    if (video.paused) {
+        							video.play();
+        							btn.innerHTML = "⏸️";
+    							} else {
+        							video.pause();
+        							btn.innerHTML = "▶️";
+    							}
 							}
-							volumeControl.addEventListener("input", function() {
-								video.volume = volumeControl.value;
-							});
+volumeControl.addEventListener("input", function() {
+    video.volume = volumeControl.value;
+    var percentage = Math.round(volumeControl.value * 100);
+    volumePercentage.innerHTML = percentage + "%";
+});
+
 						</script>
 					</body>
 				</div>
