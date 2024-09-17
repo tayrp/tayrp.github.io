@@ -21,31 +21,6 @@ body {
 	min-width: 100%; 
 	min-height: 100%;
   }
-  
-  .aboutcontent {
-	position: fixed;
-	bottom: 0;
-	background: rgba(0, 0, 0, 0.5);
-	color: #f1f1f1;
-	width: 100%;
-	padding: 20px;
-  }
-  
-  #aboutpauseBtn {
-	width: 200px;
-	font-size: 18px;
-	padding: 10px;
-	border: none;
-	background: #000;
-	color: #fff;
-	cursor: pointer;
-  }
-  
-  #aboutpauseBtn:hover {
-	background: #ddd;
-	color: black;
-  }
-
 
 .section-container { margin: 0 auto; padding-bottom: 80px; }
 .section-description { margin-top: 60px; padding-bottom: 10px; }
@@ -104,7 +79,7 @@ ul.navbar-nav {
 }
 
 /* About */
-.about {
+.index {
 	text-align: center;
 	margin: auto;
 	width: 1000px; 
