@@ -81,12 +81,12 @@
         							btn.innerHTML = "▶️";
     							}
 							}
-volumeControl.addEventListener("input", function() {
-    video.volume = volumeControl.value;
-    var percentage = Math.round(volumeControl.value * 100);
-    volumePercentage.innerHTML = percentage + "%";
-});
 
+							volumeControl.addEventListener("input", function() {
+    							video.volume = volumeControl.value;
+    							var percentage = Math.round(volumeControl.value * 100);
+    							volumePercentage.innerHTML = percentage + "%";
+							});
 						</script>
 					</body>
 				</div>
