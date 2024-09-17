@@ -142,3 +142,48 @@ div.pl {
 	display: inline-block;
 	text-align: left;
   }
+/* About stuff */
+  body {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    z-index: 1;
+}
+
+.content {
+    text-align: center;
+    color: white;
+    z-index: 1;
+    font-size: 30px;
+}
+
+#images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-logo {
+    padding-left: 15px;
+    padding-right: 1px;
+    transition: transform 0.2s;
+    width: 65px;
+    height: 47px;
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+    filter: blur(7px);
+    opacity: 65%;
+}
