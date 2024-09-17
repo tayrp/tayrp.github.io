@@ -33,7 +33,8 @@
 				</div>
 				<div class="collapse navbar-collapse" id="top-navbar-1">
 					<ul class="nav navbar-nav navbar-right">
-					   <li><a class="btn btn-link-3" href="/">Home</a></li>
+					    <li><a class="btn btn-link-3" href="/">Home</a></li>
+					    <li><a class="btn btn-link-3" button id="" onclick="togglePause()">Pause</a></li>
 						<li><a class="btn btn-link-3" href="./projects">Projects</a></li>
                         <li><a class="btn btn-link-3" href="./discord">Discord</a></li>
                         <li><a class="btn btn-link-3" href="https://tayrp.substack.com/">Blog</a></li>
@@ -45,7 +46,25 @@
 		<about>
 			<div class="about">
 			<div>
-				<p>Placeholder Page</p>
+				<video autoplay loop id="aboutvideo">
+					<source src="https://index.havenmc.org/website/assets/mp4/usurper.mp4" type="video/mp4">
+					This browser does not support HTML5 video or the server is offline.
+				  </video>
+				  
+				  <script>
+				  var video = document.getElementById("aboutvideo");
+				  var btn = document.getElementById("aboutpauseBtn");
+				  
+				  function togglePause() {
+					if (video.paused) {
+					  video.play();
+					  btn.innerHTML = "Pause";
+					} else {
+					  video.pause();
+					  btn.innerHTML = "Play";
+					}
+				  }
+				  </script>
 			</div>
 		</div>
 		</about>

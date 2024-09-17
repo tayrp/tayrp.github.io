@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" aboutcontent="width=device-width, initial-scale=1">
 </head>
 
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" aboutcontent="IE=edge">
+<meta name="viewport" aboutcontent="width=device-width, initial-scale=1">
 <title>tee's website</title>
 
 <!-- CSS -->        
-<link rel="stylesheet" href="assets/css/about.css">
+<link rel="stylesheet" href="assets/css/style.css">
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="https://cdn.discordapp.com/avatars/1050531216589332581/73e637525488ab80dc081d8e8c696eb8">
+<link rel="shortcut icon" href="assets/imgs/favicon.png">
 
 <body>
 
-<video autoplay muted loop id="myVideo">
+<video autoplay loop id="aboutvideo">
   <source src="https://index.havenmc.org/website/assets/mp4/usurper.mp4" type="video/mp4">
   This browser does not support HTML5 video or the server is offline.
 </video>
 
-<div class="content">  <button id="myBtn" onclick="myFunction()">Pause</button>
+<div class="aboutcontent"> <button id="aboutpauseBtn" onclick="togglePause()">Pause</button>
 </div>
 
 <script>
-var video = document.getElementById("myVideo");
-var btn = document.getElementById("myBtn");
+var video = document.getElementById("aboutvideo");
+var btn = document.getElementById("aboutpauseBtn");
 
-function myFunction() {
+function togglePause() {
   if (video.paused) {
     video.play();
     btn.innerHTML = "Pause";
