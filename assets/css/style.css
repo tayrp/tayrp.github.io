@@ -56,6 +56,7 @@ ul.navbar-nav {
 	text-indent: -696969px;
 }
 
+/* Doctor Who List? */
 .dw1 {
 	text-align: center;
 	margin: auto;
@@ -65,6 +66,7 @@ ul.navbar-nav {
 	font-size: 22px;
 }
 
+/* About */
 .about {
 	text-align: center;
 	margin: auto;
@@ -74,6 +76,7 @@ ul.navbar-nav {
 	font-size: 22px;
 }
 
+/* Footer */
 footer { padding: 40px 0 45px 0; background: none; }
 
 .footer-copyright { padding-top: 15px; }
@@ -90,13 +93,17 @@ center {
     margin: 0 auto;
 }
 
-/* Embed #1 */
-.embedone {
-    width: 1108px; /* you have to have a size or this method doesn't work */
-    height: 623px; /* think about making these max-width instead - might give you some more responsiveness */
 
-    position: absolute; /* positions out of the flow, but according to the nearest parent */
-    top: 0; right: 0; /* confuse it i guess */
-    bottom: 0; left: 0;
-    margin: auto; /* make em equal */
-}
+/* Project List */	
+div.pl {
+	text-align: center;
+	padding: 260px;
+	color: #b1cbcc;
+	font-size: 20px;
+	text-align: center;
+  }
+  
+  ul.plul {
+	display: inline-block;
+	text-align: left;
+  }
