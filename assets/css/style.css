@@ -101,16 +101,6 @@ ul.navbar-nav {
 	font-size: 22px;
 }
 
-/* About */
-.about {
-	text-align: center;
-	margin: auto;
-	width: 1000px; 
-	padding: 260px;
-	color: #b1cbcc;
-	font-size: 22px;
-}
-
 /* Footer */
 footer { padding: 40px 0 45px 0; background: none; }
 
@@ -128,7 +118,6 @@ center {
     margin: 0 auto;
 }
 
-
 /* Project List */	
 div.pl {
 	text-align: center;
@@ -144,6 +133,17 @@ div.pl {
   }
 
 /* About Page */
+
+/* About */
+.about {
+	text-align: center;
+	margin: auto;
+	width: 1000px; 
+	padding: 260px;
+	color: #b1cbcc;
+	font-size: 22px;
+}
+
 .aboutcontent {
     text-align: center;
     color: white;
@@ -157,7 +157,7 @@ div.pl {
     align-items: center;
 }
 
-.aboutsocial-logo {
+.about-social-logo {
     padding-left: 15px;
     padding-right: 1px;
     transition: transform 0.2s;
