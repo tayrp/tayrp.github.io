@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+    font-family: 'Shantell Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #888;
+    line-height: 30px;
+    text-align: center;
+	background-color: #36454F;
+}
+* {
+	box-sizing: border-box;
+}
+
+#aboutvideo {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%; 
+	min-height: 100%;
+  }
+  
+  .aboutcontent {
+	position: fixed;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	color: #f1f1f1;
+	width: 100%;
+	padding: 20px;
+  }
+  
+  #aboutbtn {
+	width: 200px;
+	font-size: 18px;
+	padding: 10px;
+	border: none;
+	background: #000;
+	color: #fff;
+	cursor: pointer;
+  }
+  
+  #aboutbtn:hover {
+	background: #ddd;
+	color: black;
+  }
+
+.section-container { margin: 0 auto; padding-bottom: 80px; }
+.section-description { margin-top: 60px; padding-bottom: 10px; }
+.section-description p { margin-top: 20px; padding: 0 120px; }
+
+.divider-1 { padding: 25px 0 15px 0; }
+.divider-1 .line { width: 160px; margin: 0 auto; border-bottom: 1px dashed #ccc; }
+
+.navbar {
+	margin-bottom: 0;
+	padding-top: 0;
+	background: #444;
+	border: 0;
+	-moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;
+	-o-transition: all .6s; -moz-transition: all .6s; -webkit-transition: all .6s; -ms-transition: all .6s; transition: all .6s;
+}
+.navbar-no-bg { padding-top: 10px; background: none; }
+
+ul.navbar-nav {
+	font-family: 'Shantell Sans', sans-serif;
+	font-size: 14px;
+	color: #fff;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+.navbar-inverse ul.navbar-nav li a.btn-link-3 {
+	display: inline-block;
+	margin: 9px 0 0 15px;
+	padding: 6px 15px;
+	background: #b1cbcc;
+	border: 0;
+	font-family: 'Shantell Sans', sans-serif;
+	font-size: 14px;
+    font-weight: 300;
+    color: #fff;
+    opacity: 1;
+    text-transform: uppercase;
+    -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px;
+}
+
+.navbar-brand {
+	width: 102px;
+	background: url(../imgs/logo.png) left center no-repeat;
+	text-indent: -696969px;
+}
+
+/* Doctor Who List? */
+.dw1 {
+	text-align: center;
+	margin: auto;
+	width: 1000px; 
+	padding: 260px;
+	color: #b1cbcc;
+	font-size: 22px;
+}
+
+/* Footer */
+footer { padding: 40px 0 45px 0; background: none; }
+
+.footer-copyright { padding-top: 15px; }
+.footer-copyright a { color: #888; border-bottom: 1px dotted #888; }
+.footer-copyright a:hover, .footer-copyright a:focus { color: #888; border: 0; }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+center {
+    width: 500px;
+    margin: 0 auto;
+}
+
+/* Project List */	
+div.pl {
+	text-align: center;
+	padding: 260px;
+	color: #b1cbcc;
+	font-size: 20px;
+	text-align: center;
+  }
+  
+  ul.plul {
+	display: inline-block;
+	text-align: left;
+  }
+
+/* About Page */
+
+/* About */
+.about {
+	text-align: center;
+	margin: auto;
+	width: 1000px; 
+	padding: 260px;
+	color: #b1cbcc;
+	font-size: 22px;
+}
+
+.aboutcontent {
+    text-align: center;
+    color: white;
+    z-index: 1;
+    font-size: 30px;
+}
+
+#aboutimages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-social-logo {
+    padding-left: 15px;
+    padding-right: 1px;
+    transition: transform 0.2s;
+    width: 65px;
+    height: 47px;
+}
+
+aboutvideo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+    filter: blur(7px);
+    opacity: 65%;
+}
