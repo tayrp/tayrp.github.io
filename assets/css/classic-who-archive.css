@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+    font-family: 'Shantell Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #888;
+    line-height: 30px;
+    text-align: center;
+    background-color: #36454F;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    margin-bottom: 0;
+    padding-top: 0;
+    background: #444;
+    border: 0;
+    border-radius: 0;
+    transition: all .6s;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-no-bg {
+    padding-top: 10px;
+    background: none;
+}
+
+ul.navbar-nav {
+    font-family: 'Shantell Sans', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-inverse ul.navbar-nav li {
+    display: inline;
+}
+
+.navbar-inverse ul.navbar-nav li a.btn-link-3 {
+    display: inline-block;
+    margin: 9px 0 0 15px;
+    padding: 6px 15px;
+    background: #b1cbcc;
+    border: 0;
+    font-family: 'Shantell Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.navbar-brand {
+    width: 102px;
+    background: url(../imgs/logo.png) left center no-repeat;
+    text-indent: -9999px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    padding-top: 80px; /* Padding to avoid collision with navbar */
+    padding-bottom: 80px; /* Padding to avoid collision with footer */
+}
+
+h1 {
+    color: #b1cbcc;
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+.about {
+    text-align: center;
+    margin: 0 auto;
+    width: 1000px;
+    padding: 40px 20px;
+    color: #b1cbcc;
+    font-size: 22px;
+}
+
+.about ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about li {
+    margin: 10px 0;
+}
+
+.about a {
+    color: #b1cbcc;
+    text-decoration: none;
+}
+
+.about a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    padding: 20px 0;
+    background: none;
+    color: #888;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.footer-copyright a {
+    color: #888;
+    border-bottom: 1px dotted #888;
+    text-decoration: none;
+}
+
+.footer-copyright a:hover, 
+.footer-copyright a:focus {
+    color: #888;
+    border: none;
+}
+
+.center {
+    width: 500px;
+    margin: 0 auto;
+}
+
+/* Embed #1 */
+.embedone {
+    width: 100%;
+    max-width: 1108px;
+    height: 623px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
