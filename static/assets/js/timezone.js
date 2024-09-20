@@ -6,8 +6,11 @@ function displayDateTime() {
     };
     
     const currentTime = new Date().toLocaleString('en-US', options);
-    document.getElementById('date-time').innerHTML = `It is ${currentTime} for Tee`;
+    
+    const now = new Date();
+    const timeZoneOffset = now.getTimezoneOffset() / -60; 
+    const gmtOffset = timeZoneOffset >= 0 ? `GMT+${timeZoneOffset}` : `GMT${timeZoneOffset}`;
+    document.getElementById('date-time').innerHTML = `It is ${currentTime} (${gmtOffset}) for Tee`;
 }
-
 setInterval(displayDateTime, 1000);
 window.onload = displayDateTime;
