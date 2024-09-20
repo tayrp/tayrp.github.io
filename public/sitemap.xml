@@ -10,6 +10,8 @@
   </url><url>
     <loc>http://localhost:1313/projects/</loc>
   </url><url>
+    <loc>http://localhost:1313/readme/</loc>
+  </url><url>
     <loc>http://localhost:1313/salad/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
