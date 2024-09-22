@@ -10,7 +10,7 @@ function displayDateTime() {
     const now = new Date();
     const timeZoneOffset = now.getTimezoneOffset() / -60; 
     const gmtOffset = timeZoneOffset >= 0 ? `GMT+${timeZoneOffset}` : `GMT${timeZoneOffset}`;
-    document.getElementById('date-time').innerHTML = `It is ${currentTime} (${gmtOffset}) for Tee`;
+    document.getElementById('date-time').innerHTML = `It is ${currentTime} (${gmtOffset})`;
 }
 setInterval(displayDateTime, 1000);
 window.onload = displayDateTime;
