@@ -41,3 +41,9 @@ video {
   filter: blur(7px);
   opacity: 65%;
 }
+
+#aboutpauseBtn {
+  font-size: 3rem;
+  padding: 10px;
+  display: inline-block;
+}

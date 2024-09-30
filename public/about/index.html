@@ -98,7 +98,7 @@
 				<label for="volumeControl">Volume:</label>
 				<input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.25">
 				<span id="volumePercentage">1%</span>
-				<a class="btn btn-link-3" button id="aboutpauseBtn" onclick="togglePause()">⏸️</a></p>
+				<a class="btn btn-link-3" button id="aboutpauseBtn" onclick="togglePause()">▐▐</a></p>
 
 				<script>
 					var video = document.getElementById("aboutvideo");
@@ -113,10 +113,10 @@
 					function togglePause() {
 						if (video.paused) {
 							video.play();
-							btn.innerHTML = "⏸️";
+							btn.innerHTML = "▐▐";
 						} else {
 							video.pause();
-							btn.innerHTML = "▶️";
+							btn.innerHTML = "▶";
 						}
 					}
 
