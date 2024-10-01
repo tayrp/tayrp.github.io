@@ -23,13 +23,6 @@
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/discussions/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/discussions/</guid>
-      <description>1</description>
-    </item>
-    <item>
-      <title></title>
       <link>http://localhost:1313/pages/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/pages/</guid>
