@@ -53,9 +53,8 @@ body {
   background-size: cover;
   /* background-color: #36454f; */
 }
-
-* {
-  box-sizing: border-box;
+.background-tint {
+  filter: sepia(100%) saturate(200%) brightness(70%) hue-rotate(330deg);
 }
 
 #aboutvideo {
