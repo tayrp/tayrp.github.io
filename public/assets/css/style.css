@@ -40,7 +40,6 @@ body {
 }
 */
 
-
 @import url("https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap");
 
 body {
@@ -50,7 +49,9 @@ body {
   color: #888;
   line-height: 30px;
   text-align: center;
-  background-color: #36454f;
+  background-image: url("../imgs/october_background1.jpg");
+  background-size: cover;
+  /* background-color: #36454f; */
 }
 
 * {
@@ -141,12 +142,14 @@ ul.navbar-nav {
   display: inline-block;
   margin: 9px 0 0 15px;
   padding: 6px 15px;
-  background: #b1cbcc;
+/*  background: #b1cbcc; */
+  background: #FC4C02; /* Halloween navbar */
   border: 0;
   font-size: 14px;
   font-weight: 360;
   color: #fff;
-  opacity: 0.7;
+  /* opacity: 0.7; */
+  opacity: 10; /* Halloween Background Opacity */
   text-transform: uppercase;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -157,6 +160,18 @@ ul.navbar-nav {
   width: 102px;
   background: url(../imgs/logo.png) left center no-repeat;
   text-indent: -9999999;
+}
+
+a:link {
+  color: #FC4C02;
+}
+
+a:visited {
+  color: #FC4C02;
+}
+
+a:hover {
+  color: yellow;
 }
 
 /* Doctor Who List? */
@@ -190,8 +205,10 @@ footer {
 
 footer {
   position: fixed;
+  color: white; /* October Background Footer Color */
   bottom: 0;
   width: 100%;
+  height: 13%;
 }
 center {
   width: 500px;
@@ -220,7 +237,8 @@ ul.plul {
   margin: auto;
   width: 1000px;
   padding: 260px;
-  color: #b1cbcc;
+  /*  color: #b1cbcc; */
+  color: white; /* October About Color */
   font-size: 22px;
 }
 
