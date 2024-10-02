@@ -162,15 +162,15 @@ ul.navbar-nav {
 }
 
 a:link {
-  color: #992e00ad;
+  color: #661f00ad;
 }
 
 a:visited {
-  color: #992e00ad;
+  color: #661f00ad;
 }
 
 a:hover {
-  color: #b94412ad;
+  color: rgba(77, 23, 0, 0.678);
 }
 
 /* Doctor Who List? */
