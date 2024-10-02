@@ -142,7 +142,7 @@ ul.navbar-nav {
   margin: 9px 0 0 15px;
   padding: 6px 15px;
 /*  background: #b1cbcc; */
-  background: #FC4C02; /* Halloween navbar */
+  background: #ed9458; /* Halloween navbar */
   border: 0;
   font-size: 14px;
   font-weight: 360;
@@ -162,15 +162,15 @@ ul.navbar-nav {
 }
 
 a:link {
-  color: #661f00ad;
+  color: #e04401;
 }
 
 a:visited {
-  color: #661f00ad;
+  color: #e04401;
 }
 
 a:hover {
-  color: rgba(77, 23, 0, 0.678);
+  color: #b93800;
 }
 
 /* Doctor Who List? */
