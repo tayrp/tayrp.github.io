@@ -4,6 +4,6 @@ title = 'tees website'
 
 [outputs]
   home = ["HTML"]
-  
+
 [params]
   cacheControl = "no-store, no-cache, must-revalidate, max-age=0"
