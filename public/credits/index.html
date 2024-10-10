@@ -13,6 +13,7 @@
     <title></title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="/assets/js/dark-mode.js"></script>
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
     <link
       rel="stylesheet"
@@ -51,15 +52,6 @@
             />
             <script src="/assets/js/lanyard.js"></script>
           </a>
-          <a
-            style="margin-left: 59px; margin-top: 7px; display: inline-block"
-            href="https://github.com/tayrp/tayrp.github.io/actions/workflows/hugo.yml"
-          >
-            <img
-              src="https://github.com/tayrp/tayrp.github.io/actions/workflows/hugo.yml/badge.svg?branch=main"
-              alt="Deploy Hugo site to Pages"
-            />
-          </a>
           <link rel="home" href="/" />
         </div>
         <div class="collapse navbar-collapse" id="top-navbar-1">
@@ -70,6 +62,7 @@
             <li><a class="btn btn-link-3" href="/discord">Discord</a></li>
             <li><a class="btn btn-link-3" href="/pages">Pages</a></li>
             <li><a class="btn btn-link-3" href="/credits">Credits</a></li>
+            <li><a class="btn btn-link-3" id="toggle-dark-mode" onclick="toggleDarkMode()">🌙</a></li>
           </ul>
         </div>
       </div>
@@ -89,7 +82,7 @@
 
     <footer>
       <div class="container">
-        <div class="bgbox">
+        <div class="bgboxfooter">
           <div class="row">
             &copy;
             <b

@@ -11,9 +11,11 @@ fetch(apiEndpoint)
       dcstat.src =
         "/assets/imgs/status/online.png"; /* dcstat.innerHTML = "{ONLINE}" */
     } else if (dcStatus === "idle") {
-      dcstat.src = "/assets/imgs/status/away.png"; /* dcstat.innerHTML = "{AWAY}" */
+      dcstat.src =
+        "/assets/imgs/status/away.png"; /* dcstat.innerHTML = "{AWAY}" */
     } else if (dcStatus === "dnd") {
-      dcstat.src = "/assets/imgs/status/dnd.png"; /* dcstat.innerHTML = "{DND}" */
+      dcstat.src =
+        "/assets/imgs/status/dnd.png"; /* dcstat.innerHTML = "{DND}" */
     }
   })
   .catch((error) => {

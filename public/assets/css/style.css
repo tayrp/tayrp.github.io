@@ -53,6 +53,40 @@ body {
   background-size: cover;
   background-color: #36454f;
 }
+
+body.dark-mode {
+  font-family: "Vujahday Script", cursive;
+  font-size: 18px;
+  font-weight: 360;
+  color: #888;
+  line-height: 30px;
+  text-align: center;
+  background-size: cover;
+  background-color: #36454f;
+  background-image: url("../imgs/backgrounds/vecteezy_abstract-purple-gradient-texture-with-geometric-elements_7355486.jpg");
+}
+
+body.dark-mode a {
+  color: #80b3ff;
+}
+
+body.dark-mode a:hover {
+  color: #b3c7ff;
+}
+
+.btn-link-3 {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.btn-link-3:hover {
+  color: #b3c7ff;
+}
+
 .background-tint {
   filter: sepia(100%) saturate(200%) brightness(70%) hue-rotate(330deg);
 }
@@ -141,19 +175,19 @@ ul.navbar-nav {
   display: inline-block;
   margin: 9px 0 0 15px;
   padding: 6px 15px;
-  /* background: #b1cbcc; */
-  background: #ff96b4;
-  /* background: #ed9458; /* Halloween navbar */
+  background: #ff96b4; /* Light background */
   border: 0;
   font-size: 14px;
   font-weight: 360;
-  color: #fff;
-  /* opacity: 0.7; */
-  opacity: 10; /* Halloween Background Opacity */
+  color: #fff; /* Text color */
+  opacity: 1; /* Opacity */
   text-transform: uppercase;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
+  border-radius: 6px; /* Rounded corners */
+}
+
+body.dark-mode .navbar-inverse ul.navbar-nav li a.btn-link-3 {
+  background: #a81cbe; /* Darker pink background for dark mode */
+  color: #ffffff; /* Maintain white text color */
 }
 
 .navbar-brand {
@@ -172,6 +206,17 @@ a:visited {
 
 a:hover {
   color: #770d88;
+}
+
+body.dark-mode a:link {
+  color: #3b001b;
+}
+
+body.dark-mode a:visited {
+  color: #3b001b;
+}
+body.dark-mode a:hover {
+  color: #1a000b;
 }
 
 /* Doctor Who List? */
@@ -282,9 +327,9 @@ aboutvideo {
   border-radius: 25px;
   font-size: 20px;
   padding: 25px;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   margin: 10px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .bgboxfooter {
@@ -292,7 +337,20 @@ aboutvideo {
   border-radius: 25px;
   font-size: 15px;
   padding: auto;
-  border: 1px solid #FFFFFF;
+  width: auto;
+  border: 1px solid #ffffff;
   margin: auto;
-  color: #FFFFFF;
+  color: #ffffff;
+}
+
+body.dark-mode .bgbox {
+  background: #a81cbe;
+  border: 1px solid #cccccc;
+  color: #ffffff;
+}
+
+body.dark-mode .bgboxfooter {
+  background: #a81cbe;
+  border: 1px solid #cccccc;
+  color: #ffffff;
 }
