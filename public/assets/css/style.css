@@ -286,3 +286,13 @@ aboutvideo {
   margin: 10px;
   color: #FFFFFF;
 }
+
+.bgboxfooter {
+  background: #ff96b4;
+  border-radius: 25px;
+  font-size: 15px;
+  padding: auto;
+  border: 1px solid #FFFFFF;
+  margin: 10px;
+  color: #FFFFFF;
+}
