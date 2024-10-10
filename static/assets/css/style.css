@@ -175,19 +175,19 @@ ul.navbar-nav {
   display: inline-block;
   margin: 9px 0 0 15px;
   padding: 6px 15px;
-  background: #ff96b4; /* Light background */
+  background: #ff96b4;
   border: 0;
   font-size: 14px;
   font-weight: 360;
-  color: #fff; /* Text color */
-  opacity: 1; /* Opacity */
+  color: #fff;
+  opacity: 1;
   text-transform: uppercase;
-  border-radius: 6px; /* Rounded corners */
+  border-radius: 6px;
 }
 
 body.dark-mode .navbar-inverse ul.navbar-nav li a.btn-link-3 {
-  background: #a81cbe; /* Darker pink background for dark mode */
-  color: #ffffff; /* Maintain white text color */
+  background: #a81cbe;
+  color: #ffffff;
 }
 
 .navbar-brand {
@@ -274,16 +274,13 @@ ul.plul {
   text-align: left;
 }
 
-/* About Page */
-
 /* About */
 .about {
   text-align: center;
   margin: auto;
   width: 1000px;
   padding: 260px;
-  /*  color: #b1cbcc; */
-  color: white; /* October About Color */
+  color: #b1cbcc;
   font-size: 22px;
 }
 
@@ -322,6 +319,7 @@ aboutvideo {
   opacity: 65%;
 }
 
+/* The Background Box On Most Pages */
 .bgbox {
   background: #ff96b4;
   border-radius: 25px;
