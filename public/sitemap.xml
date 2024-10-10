@@ -4,6 +4,8 @@
   <url>
     <loc>http://localhost:1313/about/</loc>
   </url><url>
+    <loc>http://localhost:1313/credits/</loc>
+  </url><url>
     <loc>http://localhost:1313/discord/</loc>
   </url><url>
     <loc>http://localhost:1313/pages/</loc>

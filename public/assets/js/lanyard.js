@@ -6,14 +6,14 @@ fetch(apiEndpoint)
     const dcStatus = data.data.discord_status;
     if (dcStatus === "offline") {
       dcstat.src =
-        "/assets/imgs/offline.png"; /* dcstat.innerHTML = "{OFFLINE}" */
+        "/assets/imgs/status/offline.png"; /* dcstat.innerHTML = "{OFFLINE}" */
     } else if (dcStatus === "online") {
       dcstat.src =
-        "/assets/imgs/online.png"; /* dcstat.innerHTML = "{ONLINE}" */
+        "/assets/imgs/status/online.png"; /* dcstat.innerHTML = "{ONLINE}" */
     } else if (dcStatus === "idle") {
-      dcstat.src = "/assets/imgs/away.png"; /* dcstat.innerHTML = "{AWAY}" */
+      dcstat.src = "/assets/imgs/status/away.png"; /* dcstat.innerHTML = "{AWAY}" */
     } else if (dcStatus === "dnd") {
-      dcstat.src = "/assets/imgs/dnd.png"; /* dcstat.innerHTML = "{DND}" */
+      dcstat.src = "/assets/imgs/status/dnd.png"; /* dcstat.innerHTML = "{DND}" */
     }
   })
   .catch((error) => {

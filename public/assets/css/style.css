@@ -49,9 +49,9 @@ body {
   color: #888;
   line-height: 30px;
   text-align: center;
-  background-image: url("../imgs/october_background1.jpg");
+  background-image: url("../imgs/backgrounds/vecteezy_abstract-square-with-pastel-colour_6487408-1.jpg");
   background-size: cover;
-  /* background-color: #36454f; */
+  background-color: #36454f;
 }
 .background-tint {
   filter: sepia(100%) saturate(200%) brightness(70%) hue-rotate(330deg);
@@ -141,8 +141,9 @@ ul.navbar-nav {
   display: inline-block;
   margin: 9px 0 0 15px;
   padding: 6px 15px;
-/*  background: #b1cbcc; */
-  background: #ed9458; /* Halloween navbar */
+  /* background: #b1cbcc; */
+  background: #ff96b4;
+  /* background: #ed9458; /* Halloween navbar */
   border: 0;
   font-size: 14px;
   font-weight: 360;
@@ -157,20 +158,20 @@ ul.navbar-nav {
 
 .navbar-brand {
   width: 102px;
-  background: url(../imgs/logo.png) left center no-repeat;
+  background: url(../imgs/pfps/logo.png) left center no-repeat;
   text-indent: -9999999;
 }
 
 a:link {
-  color: #e04401;
+  color: #a81cbe;
 }
 
 a:visited {
-  color: #e04401;
+  color: #a81cbe;
 }
 
 a:hover {
-  color: #b93800;
+  color: #770d88;
 }
 
 /* Doctor Who List? */
@@ -274,4 +275,14 @@ aboutvideo {
   z-index: -1;
   filter: blur(7px);
   opacity: 65%;
+}
+
+.bgbox {
+  background: #ff96b4;
+  border-radius: 25px;
+  font-size: 20px;
+  padding: 25px;
+  border: 1px solid #FFFFFF;
+  margin: 10px;
+  color: #FFFFFF;
 }
