@@ -161,7 +161,7 @@ body.dark-mode a:hover {
 }
 .navbar-no-bg {
   padding-top: 10px;
-  background: none;
+  background-color: rgba(68, 68, 68, 0.8); /* Black background with 80% opacity */
 }
 
 ul.navbar-nav {
