@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <title>{{ .Title }}</title>
@@ -12,85 +15,73 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="{{ "/assets/js/dark-mode.js" | relURL }}"></script>
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="/assets/font-awesome/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="/assets/css/animate.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/about/style.css" />
     <link rel="shortcut icon" href="/assets/imgs/pfps/favicon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: sans-serif; /* Default font */
-        }
-        body.custom-font {
-            font-family: "Vujahday Script", cursive; /* Custom font */
-        }
-    </style>
-</head>
+  </head>
 
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top navbar-no-bg" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/" style="color: white">
-                    Tee
-                    <img id="dcstat" alt="Status" width="75" style="margin-left: 55px; margin-top: -17px" />
-                    <script src="/assets/js/lanyard.js"></script>
-                </a>
-                <link rel="home" href="/" />
-            </div>
-            <div class="collapse navbar-collapse" id="top-navbar-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a class="btn btn-link-3" href="/">Home</a></li>
-                    <li><a class="btn btn-link-3" href="/about">About</a></li>
-                    <li><a class="btn btn-link-3" href="/projects">Projects</a></li>
-                    <li><a class="btn btn-link-3" href="/discord">Discord</a></li>
-                    <li><a class="btn btn-link-3" href="/pages">Pages</a></li>
-                    <li><a class="btn btn-link-3" href="/credits">Credits</a></li>
-                    <li><a class="btn btn-link-3" id="toggle-dark-mode" onclick="toggleDarkMode()">🌙</a></li>
-                </ul>
-            </div>
+  <body>
+    <nav
+      class="navbar navbar-inverse navbar-fixed-top navbar-no-bg"
+      role="navigation"
+    >
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#top-navbar-1"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/" style="color: white">
+            Tee
+            <img
+              id="dcstat"
+              alt="Status"
+              width="75"
+              style="margin-left: 55px; margin-top: -17px"
+            />
+            <script src="/assets/js/lanyard.js"></script>
+          </a>
+          <link rel="home" href="/" />
         </div>
+        <div class="collapse navbar-collapse" id="top-navbar-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="btn btn-link-3" href="/">Home</a></li>
+            <li><a class="btn btn-link-3" href="/about">About</a></li>
+            <li><a class="btn btn-link-3" href="/projects">Projects</a></li>
+            <li><a class="btn btn-link-3" href="/discord">Discord</a></li>
+            <li><a class="btn btn-link-3" href="/pages">Pages</a></li>
+            <li><a class="btn btn-link-3" href="/credits">Credits</a></li>
+            <li><a class="btn btn-link-3" id="toggle-dark-mode" onclick="toggleDarkMode()">🌙</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
-
     {{ block "main" . }} {{ end }}
-
     <footer>
-        <div class="container">
-            <div class="bgboxfooter">
-                <div class="row">
-                    &copy; <b>2024 <a href="https://github.com/tayrp/tayrp.github.io">TayRP</a>. All rights reserved. Made with <span onclick="toggleFont()" style="cursor: pointer;">❤️</span> by <a href="https://github.com/tayrp">Tee</a></b>
-                </div>
-            </div>
+      <div class="container">
+        <div class="bgboxfooter">
+          <div class="row">
+            &copy;
+            <b
+              >2024
+              <a href="https://github.com/tayrp/tayrp.github.io">TayRP</a>. All
+              rights reserved. Made with 🩷 by
+              <a href="https://github.com/tayrp">Tee</a></b
+            >
+          </div>
         </div>
+      </div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Check if the font is set in localStorage
-            if (localStorage.getItem('font') === 'vujahday') {
-                document.body.classList.add('custom-font');
-            }
-
-            // Log the localStorage item to check its value
-            console.log('Current font setting:', localStorage.getItem('font'));
-        });
-
-        function toggleFont() {
-            document.body.classList.toggle('custom-font');
-            if (document.body.classList.contains('custom-font')) {
-                localStorage.setItem('font', 'vujahday');
-                console.log('Font switched to Vujahday Script'); // Debug log
-            } else {
-                localStorage.removeItem('font'); // Reset to default
-                console.log('Font reset to default'); // Debug log
-            }
-        }
-    </script>
-</body>
+  </body>
 </html>

@@ -2,10 +2,26 @@
 <script src="/assets/js/about.js" defer></script>
 <main>
   <div class="about">
-    <div class="overlay" id="overlay">
-      <button id="enterButton" class="enter-button">Click to Continue To About</button>
+    <div class="overlay" id="overlay" style="display: none">
+      <button
+        id="enterButton"
+        class="enter-button"
+        style="
+          background-color: #cebaef;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          padding: 10px 20px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        "
+        onmouseover="this.style.backgroundColor='#c4a1e1';"
+        onmouseout="this.style.backgroundColor='#cebaef';"
+      >
+        Click to Continue To About
+      </button>
     </div>
-    <div id="content" style="display: none;">
+    <div id="content">
       <div class="content">
         <div class="bgbox">
           <h1>Hiya, Call me Tee!</h1>
@@ -25,7 +41,10 @@
                 alt="Haven Community"
               />
             </a>
-            <a href="https://discord.com/users/1050531216589332581" target="_blank">
+            <a
+              href="https://discord.com/users/1050531216589332581"
+              target="_blank"
+            >
               <img
                 src="/assets/imgs/socials/discord.png"
                 class="social-logo"
@@ -64,7 +83,7 @@
         </div>
         <video muted autoplay loop id="aboutvideo">
           <source
-            src="https://index.havenmc.org/website/assets/mp4/fightsong.mp4"
+            src="https://index.havenmc.org/website/assets/mp4/usurper.mp4"
             type="video/mp4"
           />
           This browser does not support HTML5 video or the server is offline.
@@ -79,7 +98,7 @@
           step="0.01"
           value="0.25"
         />
-        <span id="volumePercentage">1%</span>
+        <span id="volumePercentage">25%</span>
         <a
           class="btn btn-link-3"
           id="aboutpauseBtn"
@@ -96,8 +115,34 @@
             position: relative;
             top: -2px;
           "
-        >⏯</a>
+          >⏯</a
+        >
       </div>
     </div>
   </div>
 </main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var overlay = document.getElementById("overlay");
+    var content = document.getElementById("content");
+    var enterButton = document.getElementById("enterButton");
+    var video = document.getElementById("aboutvideo");
+    var volumeControl = document.getElementById("volumeControl");
+    var volumePercentage = document.getElementById("volumePercentage");
+
+    overlay.style.display = "none";
+    content.style.display = "block";
+    video.muted = false;
+    video.play();
+
+    video.volume = volumeControl.value;
+    volumePercentage.innerHTML = Math.round(volumeControl.value * 100) + "%";
+
+    volumeControl.addEventListener("input", function () {
+      video.volume = volumeControl.value;
+      var percentage = Math.round(volumeControl.value * 100);
+      volumePercentage.innerHTML = percentage + "%";
+    });
+  });
+</script>
