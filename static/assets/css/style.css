@@ -352,20 +352,18 @@ section:hover {
   transform: scale(1.02);
 }
 
-/* Button styles */
 .enter-button {
-  background-color: #cebaef; /* Main button color */
-  color: #fff; /* Text color */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px 20px; /* Padding */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s; /* Transition for hover effect */
+  background-color: #cebaef;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-/* Button hover effect */
 .enter-button:hover {
-  background-color: #c4a1e1; /* Slightly darker shade for hover */
+  background-color: #c4a1e1;
 }
 
 @media (max-width: 768px) {
