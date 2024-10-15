@@ -67,6 +67,11 @@ body.dark-mode {
   background-image: url("../imgs/backgrounds/vecteezy_abstract-purple-gradient-texture-with-geometric-elements_7355486.jpg");
 }
 
+body.dark-mode.custom-font {
+  font-family: "Vujahday Script", cursive; /* Font to switch to in dark mode */
+}
+
+
 body.custom-font {
   font-family: "Vujahday Script", cursive; /* Font to switch to */
 }
@@ -146,10 +151,12 @@ body.dark-mode a:hover {
   margin: 0 auto;
   padding-bottom: 80px;
 }
+
 .section-description {
   margin-top: 60px;
   padding-bottom: 10px;
 }
+
 .section-description p {
   margin-top: 20px;
   padding: 0 120px;
@@ -158,6 +165,7 @@ body.dark-mode a:hover {
 .divider-1 {
   padding: 25px 0 15px 0;
 }
+
 .divider-1 .line {
   width: 160px;
   margin: 0 auto;
@@ -169,15 +177,10 @@ body.dark-mode a:hover {
   padding-top: 0;
   background: #444;
   border: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
   border-radius: 0;
-  -o-transition: all 0.6s;
-  -moz-transition: all 0.6s;
-  -webkit-transition: all 0.6s;
-  -ms-transition: all 0.6s;
   transition: all 0.6s;
 }
+
 .navbar-no-bg {
   padding-top: 10px;
   background-color: rgba(68, 68, 68, 0.8); /* Black background with 80% opacity */
@@ -199,7 +202,6 @@ ul.navbar-nav {
   font-size: 14px;
   font-weight: 360;
   color: #fff;
-  opacity: 1;
   text-transform: uppercase;
   border-radius: 6px;
 }
@@ -234,6 +236,7 @@ body.dark-mode a:link {
 body.dark-mode a:visited {
   color: #3b001b;
 }
+
 body.dark-mode a:hover {
   color: #1a000b;
 }
@@ -257,10 +260,12 @@ footer {
 .footer-copyright {
   padding-top: 15px;
 }
+
 .footer-copyright a {
   color: #888;
   border-bottom: 1px dotted #888;
 }
+
 .footer-copyright a:hover,
 .footer-copyright a:focus {
   color: #888;
@@ -274,6 +279,7 @@ footer {
   width: 100%;
   height: 13%;
 }
+
 center {
   width: 500px;
   margin: 0 auto;
@@ -362,48 +368,31 @@ aboutvideo {
 
 body.dark-mode .bgbox {
   background: #a81cbe;
-  border: 1px solid #cccccc;
-  color: #ffffff;
+  border: 1px solid #ffffff;
 }
 
 body.dark-mode .bgboxfooter {
   background: #a81cbe;
-  border: 1px solid #cccccc;
-  color: #ffffff;
+  border: 1px solid #ffffff;
 }
 
-/* Button styles */
-.enter-button {
-  padding: 10px 20px; /* Adjust padding for a more standard button size */
+.section {
+  margin: 20px 0;
+  padding: 20px;
   border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 20px; /* Set a fixed font size */
-  margin: 0px; /* Add some margin for spacing */
-  background-color: #cebaef ; /* Use the same color for both modes */
-  color: #a81cbe; /* White text */
+  transition: 0.5s;
 }
 
-.enter-button:hover {
-  background-color: #c69fc8; /* Darker shade for hover effect */
+section:hover {
+  transform: scale(1.02);
 }
 
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  .section {
+    padding: 10px;
+  }
+}
