@@ -1,0 +1,22 @@
+<button class="font-toggle-button" onclick="toggleFont()">Switch to Vujahday</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Check for stored font preference and apply it
+    if (localStorage.getItem('font') === 'vujahday') {
+        document.body.classList.add('custom-font');
+    }
+});
+
+function toggleFont() {
+    // Toggle the font class
+    document.body.classList.toggle('custom-font');
+
+    // Update localStorage based on the current font state
+    if (document.body.classList.contains('custom-font')) {
+        localStorage.setItem('font', 'vujahday');
+    } else {
+        localStorage.removeItem('font'); // Reset to default
+    }
+}
+</script>
