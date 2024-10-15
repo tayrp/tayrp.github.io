@@ -2,7 +2,7 @@
 <script src="/assets/js/about.js" defer></script>
 <main>
   <div class="about">
-    <div class="overlay" id="overlay" style="display: none">
+    <div class="overlay" id="overlay" style="display: block">
       <button
         id="enterButton"
         class="enter-button"
@@ -21,7 +21,7 @@
         Click to Continue To About
       </button>
     </div>
-    <div id="content">
+    <div id="content" style="display: none">
       <div class="content">
         <div class="bgbox">
           <h1>Hiya, Call me Tee!</h1>
@@ -81,7 +81,7 @@
             </a>
           </div>
         </div>
-        <video muted autoplay loop id="aboutvideo">
+        <video muted loop id="aboutvideo">
           <source
             src="https://index.havenmc.org/website/assets/mp4/usurper.mp4"
             type="video/mp4"
@@ -126,18 +126,19 @@
   document.addEventListener("DOMContentLoaded", function () {
     var overlay = document.getElementById("overlay");
     var content = document.getElementById("content");
-    var enterButton = document.getElementById("enterButton");
     var video = document.getElementById("aboutvideo");
     var volumeControl = document.getElementById("volumeControl");
     var volumePercentage = document.getElementById("volumePercentage");
+    var enterButton = document.getElementById("enterButton");
 
-    overlay.style.display = "none";
-    content.style.display = "block";
-    video.muted = false;
-    video.play();
-
-    video.volume = volumeControl.value;
-    volumePercentage.innerHTML = Math.round(volumeControl.value * 100) + "%";
+    enterButton.addEventListener("click", function () {
+      overlay.style.display = "none";
+      content.style.display = "block";
+      video.muted = false;
+      video.volume = volumeControl.value;
+      video.play();
+      volumePercentage.innerHTML = Math.round(volumeControl.value * 100) + "%";
+    });
 
     volumeControl.addEventListener("input", function () {
       video.volume = volumeControl.value;

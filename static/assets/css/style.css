@@ -43,7 +43,7 @@ body {
 @import url("https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap");
 
 body {
-  font-family: "Vujahday Script", cursive; /* Use only Vujahday Script */
+  font-family: "Vujahday Script", cursive;
   font-size: 18px;
   font-weight: 360;
   color: #888;
@@ -365,7 +365,7 @@ section:hover {
 
 /* Button hover effect */
 .enter-button:hover {
-  background-color: #c4a1e1; /* Slightly darker shade for hover */ 
+  background-color: #c4a1e1; /* Slightly darker shade for hover */
 }
 
 @media (max-width: 768px) {
