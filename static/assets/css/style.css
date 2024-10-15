@@ -43,7 +43,7 @@ body {
 @import url("https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap");
 
 body {
-  font-family: sans-serif;
+  font-family: "Vujahday Script", cursive; /* Use only Vujahday Script */
   font-size: 18px;
   font-weight: 360;
   color: #888;
@@ -55,32 +55,9 @@ body {
 }
 
 body.dark-mode {
-  font-family: "Vujahday Script", cursive;
-  font-size: 18px;
-  font-weight: 360;
-  color: #888;
-  line-height: 30px;
-  text-align: center;
   background-size: cover;
   background-color: #36454f;
   background-image: url("../imgs/backgrounds/vecteezy_abstract-purple-gradient-texture-with-geometric-elements_7355486.jpg");
-}
-
-body.custom-font {
-  font-family: "Vujahday Script", cursive;
-}
-
-.font-toggle-button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.font-toggle-button:hover {
-  background-color: #0056b3;
 }
 
 body.dark-mode a {
@@ -388,10 +365,8 @@ section:hover {
 
 /* Button hover effect */
 .enter-button:hover {
-  background-color: #c4a1e1; /* Slightly darker shade for hover */
+  background-color: #c4a1e1; /* Slightly darker shade for hover */ 
 }
-
-
 
 @media (max-width: 768px) {
   body {
