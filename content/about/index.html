@@ -1,149 +1,230 @@
-<link rel="stylesheet" href="/assets/css/about/style.css" />
-<script src="/assets/js/about.js" defer></script>
-<main>
-  <div class="about">
-    <div class="overlay" id="overlay" style="display: block">
-      <button
-        id="enterButton"
-        class="enter-button"
-        style="
-          background-color: #cebaef;
-          color: #fff;
-          border: none;
-          border-radius: 5px;
-          padding: 10px 20px;
-          cursor: pointer;
-          transition: background-color 0.3s;
-        "
-        onmouseover="this.style.backgroundColor='#c4a1e1';"
-        onmouseout="this.style.backgroundColor='#cebaef';"
-      >
-        Click to Continue To About
-      </button>
-    </div>
-    <div id="content" style="display: none">
-      <div class="content">
-        <div class="bgbox">
-          <h1>Hiya, Call me Tee!</h1>
-          <iframe
-            width="570"
-            height="212"
-            src="https://lanyard.cnrad.dev/api/1050531216589332581"
-            frameborder="0"
-            allowfullscreen="false"
-            style="margin-left: 0px"
-          ></iframe>
-          <div id="images">
-            <a href="https://discord.gg/gjypyNkPPp" target="_blank">
-              <img
-                src="/assets/imgs/socials/haven.png"
-                class="social-logo"
-                alt="Haven Community"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <link rel="stylesheet" href="/assets/css/about/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #name {
+        font-family: "VT323", monospace;
+        font-style: italic;
+        border-right: 2px solid black;
+        white-space: nowrap;
+        display: inline-block;
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="about">
+        <div class="overlay" id="overlay" style="display: block">
+          <button
+            id="enterButton"
+            class="enter-button"
+            style="
+              background-color: #cebaef;
+              color: #fff;
+              border: none;
+              border-radius: 5px;
+              padding: 10px 20px;
+              cursor: pointer;
+              transition: background-color 0.3s;
+            "
+            onmouseover="this.style.backgroundColor='#c4a1e1';"
+            onmouseout="this.style.backgroundColor='#cebaef';"
+          >
+            Click to Continue To About
+          </button>
+        </div>
+        <div id="content" style="display: none">
+          <div class="content">
+            <div class="bgbox">
+              <h1 style="display: inline">
+                Hiya, I am <span id="name"></span>
+              </h1>
+
+              <iframe
+                width="570"
+                height="212"
+                src="https://lanyard.cnrad.dev/api/1050531216589332581"
+                frameborder="0"
+                allowfullscreen="false"
+                style="margin-left: 0px"
+              ></iframe>
+
+              <div id="images">
+                <a href="https://discord.gg/gjypyNkPPp" target="_blank">
+                  <img
+                    src="/assets/imgs/socials/haven.png"
+                    class="social-logo"
+                    alt="Haven Community"
+                  />
+                </a>
+                <a
+                  href="https://discord.com/users/1050531216589332581"
+                  target="_blank"
+                >
+                  <img
+                    src="/assets/imgs/socials/discord.png"
+                    class="social-logo"
+                    alt="Discord"
+                  />
+                </a>
+                <a href="https://github.com/tayrp" target="_blank">
+                  <img
+                    src="/assets/imgs/socials/github.png"
+                    class="social-logo"
+                    alt="Github"
+                  />
+                </a>
+                <a href="https://www.last.fm/user/MystixMew" target="_blank">
+                  <img
+                    src="/assets/imgs/socials/lastfm.png"
+                    class="social-logo"
+                    alt="Last.fm"
+                  />
+                </a>
+                <a href="https://www.youtube.com/@MystixMew" target="_blank">
+                  <img
+                    src="/assets/imgs/socials/youtube.png"
+                    class="social-logo"
+                    alt="YouTube"
+                  />
+                </a>
+                <a
+                  href="https://namemc.com/profile/MystixMew.1"
+                  target="_blank"
+                >
+                  <img
+                    src="/assets/imgs/socials/namemc.png"
+                    class="social-logo"
+                    alt="NameMC"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <video muted loop id="aboutvideo">
+              <source
+                src="https://index.havenmc.org/website/assets/mp4/usurper.mp4"
+                type="video/mp4"
               />
-            </a>
+              This browser does not support HTML5 video or the server is
+              offline.
+            </video>
+
+            <label for="volumeControl">Volume:</label>
+            <input
+              type="range"
+              id="volumeControl"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.25"
+            />
+            <span id="volumePercentage">25%</span>
+
             <a
-              href="https://discord.com/users/1050531216589332581"
-              target="_blank"
+              class="btn btn-link-3"
+              id="aboutpauseBtn"
+              onclick="togglePause()"
+              style="
+                font-size: 27px;
+                padding: 0;
+                color: #a81cbe;
+                width: 30px;
+                height: 30px;
+                line-height: 27px;
+                display: inline-block;
+              "
+              >⏯</a
             >
-              <img
-                src="/assets/imgs/socials/discord.png"
-                class="social-logo"
-                alt="Discord"
-              />
-            </a>
-            <a href="https://github.com/tayrp" target="_blank">
-              <img
-                src="/assets/imgs/socials/github.png"
-                class="social-logo"
-                alt="Github"
-              />
-            </a>
-            <a href="https://www.last.fm/user/MystixMew" target="_blank">
-              <img
-                src="/assets/imgs/socials/lastfm.png"
-                class="social-logo"
-                alt="Last.fm"
-              />
-            </a>
-            <a href="https://www.youtube.com/@MystixMew" target="_blank">
-              <img
-                src="/assets/imgs/socials/youtube.png"
-                class="social-logo"
-                alt="YouTube"
-              />
-            </a>
-            <a href="https://namemc.com/profile/MystixMew.1" target="_blank">
-              <img
-                src="/assets/imgs/socials/namemc.png"
-                class="social-logo"
-                alt="NameMC"
-              />
-            </a>
           </div>
         </div>
-        <video muted loop id="aboutvideo">
-          <source
-            src="https://index.havenmc.org/website/assets/mp4/usurper.mp4"
-            type="video/mp4"
-          />
-          This browser does not support HTML5 video or the server is offline.
-        </video>
-
-        <label for="volumeControl">Volume:</label>
-        <input
-          type="range"
-          id="volumeControl"
-          min="0"
-          max="1"
-          step="0.01"
-          value="0.25"
-        />
-        <span id="volumePercentage">25%</span>
-        <a
-          class="btn btn-link-3"
-          id="aboutpauseBtn"
-          onclick="togglePause()"
-          style="
-            font-size: 27px;
-            padding: 0;
-            color: #a81cbe;
-            width: 30px;
-            height: 30px;
-            line-height: 27px;
-            display: inline-block;
-            text-align: center;
-            position: relative;
-            top: -2px;
-          "
-          >⏯</a
-        >
       </div>
-    </div>
-  </div>
-</main>
+    </main>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var overlay = document.getElementById("overlay");
-    var content = document.getElementById("content");
-    var video = document.getElementById("aboutvideo");
-    var volumeControl = document.getElementById("volumeControl");
-    var volumePercentage = document.getElementById("volumePercentage");
-    var enterButton = document.getElementById("enterButton");
+    <script src="/assets/js/namewriter.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var overlay = document.getElementById("overlay");
+        var content = document.getElementById("content");
+        var video = document.getElementById("aboutvideo");
+        var volumeControl = document.getElementById("volumeControl");
+        var volumePercentage = document.getElementById("volumePercentage");
+        var enterButton = document.getElementById("enterButton");
 
-    enterButton.addEventListener("click", function () {
-      overlay.style.display = "none";
-      content.style.display = "block";
-      video.muted = false;
-      video.volume = volumeControl.value;
-      video.play();
-      volumePercentage.innerHTML = Math.round(volumeControl.value * 100) + "%";
-    });
+        enterButton.addEventListener("click", function () {
+          overlay.style.display = "none";
+          content.style.display = "block";
+          video.muted = false;
+          video.volume = volumeControl.value;
+          video.play();
+          volumePercentage.innerHTML =
+            Math.round(volumeControl.value * 100) + "%";
+        });
 
-    volumeControl.addEventListener("input", function () {
-      video.volume = volumeControl.value;
-      var percentage = Math.round(volumeControl.value * 100);
-      volumePercentage.innerHTML = percentage + "%";
-    });
-  });
-</script>
+        volumeControl.addEventListener("input", function () {
+          video.volume = volumeControl.value;
+          var percentage = Math.round(volumeControl.value * 100);
+          volumePercentage.innerHTML = percentage + "%";
+        });
+
+        window.togglePause = function () {
+          if (video.paused) {
+            video.play();
+            document.getElementById("aboutpauseBtn").innerText = "⏸";
+          } else {
+            video.pause();
+            document.getElementById("aboutpauseBtn").innerText = "⏯";
+          }
+        };
+
+        const names = ["Valerie", "Tee", "Riya", "Rhea", "Kara"];
+        const nameElement = document.getElementById("name");
+        let index = 0;
+        let currentName = "";
+        let typingIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+          if (isDeleting) {
+            currentName = names[index].substring(0, typingIndex--);
+          } else {
+            currentName = names[index].substring(0, typingIndex++);
+          }
+
+          nameElement.textContent = currentName;
+
+          if (!isDeleting && typingIndex === names[index].length) {
+            setTimeout(() => {
+              isDeleting = true;
+            }, 1000);
+          } else if (isDeleting && typingIndex === 0) {
+            isDeleting = false;
+            index = (index + 1) % names.length;
+          }
+
+          setTimeout(type, isDeleting ? 100 : 200);
+        }
+
+        type();
+      });
+    </script>
+  </body>
+</html>
