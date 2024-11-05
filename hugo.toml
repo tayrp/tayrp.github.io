@@ -1,6 +1,6 @@
 baseURL = 'https://tee.is-a.dev'
 languageCode = 'en-us'
-title = 'tees website'
+title = 'MystixMew's Website'
 
 [outputs]
   home = ["HTML"]
