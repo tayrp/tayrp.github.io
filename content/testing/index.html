@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <link rel="stylesheet" href="/assets/css/about/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+      #bgVideo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+        transform: translate(-50%, -50%);
+      }
+      #name {
+        font-family: "VT323", monospace;
+        font-style: italic;
+        border-right: 2px solid black;
+        white-space: nowrap;
+        display: inline-block;
+      }
+      #autoplayPrompt {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        z-index: 10;
+      }
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <video id="bgVideo" autoplay loop muted>
+      <source src="" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+
+    <div id="autoplayPrompt" style="display: none">
+      <p>Do you want to enable automatic video playback with sound?</p>
+      <button id="allowAutoplay">Yes</button>
+      <button id="denyAutoplay">No</button>
+    </div>
+
+    <main>
+      <div class="about">
+        <div class="overlay" id="overlay" style="display: block">
+          <button
+            id="enterButton"
+            class="enter-button"
+            style="
+              background-color: #cebaef;
+              color: #fff;
+              border: none;
+              border-radius: 5px;
+              padding: 10px 20px;
+              cursor: pointer;
+              transition: background-color 0.3s;
+            "
+          >
+            Click to Continue To About
+          </button>
+        </div>
+        <div id="content" style="display: none">
+          <div class="content">
+            <div class="bgbox">
+              <h1 style="display: inline">
+                Hiya, I am <span id="name"></span>
+              </h1>
+
+              <iframe
+                width="570"
+                height="212"
+                src="https://lanyard.cnrad.dev/api/1050531216589332581"
+                frameborder="0"
+                allowfullscreen="false"
+                style="margin-left: 0px"
+              ></iframe>
+
+              <div id="images"></div>
+            </div>
+
+            <label for="volumeControl">Volume:</label>
+            <input
+              type="range"
+              id="volumeControl"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.25"
+            />
+            <span id="volumePercentage">25%</span>
+
+            <a
+              class="btn btn-link-3"
+              id="aboutpauseBtn"
+              onclick="togglePause()"
+              style="
+                font-size: 27px;
+                padding: 0;
+                color: #a81cbe;
+                width: 30px;
+                height: 30px;
+                line-height: 27px;
+                display: inline-block;
+              "
+              >⏯</a
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="/assets/js/namewriter.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var overlay = document.getElementById("overlay");
+        var content = document.getElementById("content");
+        var volumeControl = document.getElementById("volumeControl");
+        var volumePercentage = document.getElementById("volumePercentage");
+        var enterButton = document.getElementById("enterButton");
+        var bgVideo = document.getElementById("bgVideo");
+
+        enterButton.addEventListener("click", function () {
+          overlay.style.display = "none";
+          content.style.display = "block";
+          volumePercentage.innerHTML =
+            Math.round(volumeControl.value * 100) + "%";
+          bgVideo.volume = volumeControl.value;
+
+          if (!localStorage.getItem("autoplayPermission")) {
+            document.getElementById("autoplayPrompt").style.display = "block";
+          } else {
+            const permission = localStorage.getItem("autoplayPermission");
+            bgVideo.muted = permission === "no";
+            bgVideo.play();
+          }
+        });
+
+        volumeControl.addEventListener("input", function () {
+          var percentage = Math.round(volumeControl.value * 100);
+          volumePercentage.innerHTML = percentage + "%";
+          bgVideo.volume = volumeControl.value;
+        });
+
+        window.togglePause = function () {
+          if (bgVideo.paused) {
+            bgVideo.play();
+            document.getElementById("aboutpauseBtn").innerText = "⏸";
+          } else {
+            bgVideo.pause();
+            document.getElementById("aboutpauseBtn").innerText = "⏯";
+          }
+        };
+
+        const names = ["Valerie", "Tee", "Riya", "Rhea", "Kara"];
+        const nameElement = document.getElementById("name");
+        let index = 0;
+        let currentName = "";
+        let typingIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+          if (isDeleting) {
+            currentName = names[index].substring(0, typingIndex--);
+          } else {
+            currentName = names[index].substring(0, typingIndex++);
+          }
+
+          nameElement.textContent = currentName;
+
+          if (!isDeleting && typingIndex === names[index].length) {
+            setTimeout(() => {
+              isDeleting = true;
+            }, 1000);
+          } else if (isDeleting && typingIndex === 0) {
+            isDeleting = false;
+            index = (index + 1) % names.length;
+          }
+
+          setTimeout(type, isDeleting ? 100 : 200);
+        }
+
+        type();
+      });
+
+      const videos = [
+        "https://index.havenmc.org/website/assets/mp4/fightsong.mp4",
+        "https://index.havenmc.org/website/assets/mp4/usurper.mp4",
+        "https://index.havenmc.org/website/assets/mp4/lmwasabi.mp4",
+      ];
+
+      function setRandomVideo() {
+        const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+        const videoSource = document.querySelector("#bgVideo source");
+        videoSource.src = randomVideo;
+        const bgVideo = document.getElementById("bgVideo");
+        bgVideo.load();
+      }
+
+      window.onload = function () {
+        setRandomVideo();
+
+        document.getElementById("autoplayPrompt").style.display = "none";
+
+        document.getElementById("allowAutoplay").onclick = function () {
+          bgVideo.muted = false;
+          bgVideo.play();
+          localStorage.setItem("autoplayPermission", "yes");
+          document.getElementById("autoplayPrompt").style.display = "none";
+        };
+
+        document.getElementById("denyAutoplay").onclick = function () {
+          bgVideo.muted = true;
+          bgVideo.play();
+          localStorage.setItem("autoplayPermission", "no");
+          document.getElementById("autoplayPrompt").style.display = "none";
+        };
+      };
+    </script>
+  </body>
+</html>
