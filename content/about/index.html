@@ -10,6 +10,23 @@
       rel="stylesheet"
     />
     <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+      #bgVideo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+        transform: translate(-50%, -50%);
+      }
       #name {
         font-family: "VT323", monospace;
         font-style: italic;
@@ -17,7 +34,16 @@
         white-space: nowrap;
         display: inline-block;
       }
-
+      #autoplayPrompt {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        z-index: 10;
+      }
       @keyframes blink-caret {
         from,
         to {
@@ -30,6 +56,17 @@
     </style>
   </head>
   <body>
+    <video id="bgVideo" autoplay loop muted>
+      <source src="" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+
+    <div id="autoplayPrompt" style="display: none">
+      <p>Do you want to enable automatic video playback with sound?</p>
+      <button id="allowAutoplay">Yes</button>
+      <button id="denyAutoplay">No</button>
+    </div>
+
     <main>
       <div class="about">
         <div class="overlay" id="overlay" style="display: block">
@@ -45,8 +82,6 @@
               cursor: pointer;
               transition: background-color 0.3s;
             "
-            onmouseover="this.style.backgroundColor='#c4a1e1';"
-            onmouseout="this.style.backgroundColor='#cebaef';"
           >
             Click to Continue To About
           </button>
@@ -67,66 +102,8 @@
                 style="margin-left: 0px"
               ></iframe>
 
-              <div id="images">
-                <a href="https://discord.gg/gjypyNkPPp" target="_blank">
-                  <img
-                    src="/assets/imgs/socials/haven.png"
-                    class="social-logo"
-                    alt="Haven Community"
-                  />
-                </a>
-                <a
-                  href="https://discord.com/users/1050531216589332581"
-                  target="_blank"
-                >
-                  <img
-                    src="/assets/imgs/socials/discord.png"
-                    class="social-logo"
-                    alt="Discord"
-                  />
-                </a>
-                <a href="https://github.com/tayrp" target="_blank">
-                  <img
-                    src="/assets/imgs/socials/github.png"
-                    class="social-logo"
-                    alt="Github"
-                  />
-                </a>
-                <a href="https://www.last.fm/user/MystixMew" target="_blank">
-                  <img
-                    src="/assets/imgs/socials/lastfm.png"
-                    class="social-logo"
-                    alt="Last.fm"
-                  />
-                </a>
-                <a href="https://www.youtube.com/@MystixMew" target="_blank">
-                  <img
-                    src="/assets/imgs/socials/youtube.png"
-                    class="social-logo"
-                    alt="YouTube"
-                  />
-                </a>
-                <a
-                  href="https://namemc.com/profile/MystixMew.1"
-                  target="_blank"
-                >
-                  <img
-                    src="/assets/imgs/socials/namemc.png"
-                    class="social-logo"
-                    alt="NameMC"
-                  />
-                </a>
-              </div>
+              <div id="images"></div>
             </div>
-
-            <video muted loop id="aboutvideo">
-              <source
-                src="https://index.havenmc.org/website/assets/mp4/usurper.mp4"
-                type="video/mp4"
-              />
-              This browser does not support HTML5 video or the server is
-              offline.
-            </video>
 
             <label for="volumeControl">Volume:</label>
             <input
@@ -160,37 +137,44 @@
     </main>
 
     <script src="/assets/js/namewriter.js"></script>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var overlay = document.getElementById("overlay");
         var content = document.getElementById("content");
-        var video = document.getElementById("aboutvideo");
         var volumeControl = document.getElementById("volumeControl");
         var volumePercentage = document.getElementById("volumePercentage");
         var enterButton = document.getElementById("enterButton");
+        var bgVideo = document.getElementById("bgVideo");
 
         enterButton.addEventListener("click", function () {
           overlay.style.display = "none";
           content.style.display = "block";
-          video.muted = false;
-          video.volume = volumeControl.value;
-          video.play();
           volumePercentage.innerHTML =
             Math.round(volumeControl.value * 100) + "%";
+          bgVideo.volume = volumeControl.value;
+
+          if (!localStorage.getItem("autoplayPermission")) {
+            document.getElementById("autoplayPrompt").style.display = "block";
+          } else {
+            const permission = localStorage.getItem("autoplayPermission");
+            bgVideo.muted = permission === "no";
+            bgVideo.play();
+          }
         });
 
         volumeControl.addEventListener("input", function () {
-          video.volume = volumeControl.value;
           var percentage = Math.round(volumeControl.value * 100);
           volumePercentage.innerHTML = percentage + "%";
+          bgVideo.volume = volumeControl.value;
         });
 
         window.togglePause = function () {
-          if (video.paused) {
-            video.play();
+          if (bgVideo.paused) {
+            bgVideo.play();
             document.getElementById("aboutpauseBtn").innerText = "⏸";
           } else {
-            video.pause();
+            bgVideo.pause();
             document.getElementById("aboutpauseBtn").innerText = "⏯";
           }
         };
@@ -225,6 +209,40 @@
 
         type();
       });
+
+      const videos = [
+        "https://index.havenmc.org/website/assets/mp4/fightsong.mp4",
+        "https://index.havenmc.org/website/assets/mp4/usurper.mp4",
+        "https://index.havenmc.org/website/assets/mp4/lmwasabi.mp4",
+      ];
+
+      function setRandomVideo() {
+        const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+        const videoSource = document.querySelector("#bgVideo source");
+        videoSource.src = randomVideo;
+        const bgVideo = document.getElementById("bgVideo");
+        bgVideo.load();
+      }
+
+      window.onload = function () {
+        setRandomVideo();
+
+        document.getElementById("autoplayPrompt").style.display = "none";
+
+        document.getElementById("allowAutoplay").onclick = function () {
+          bgVideo.muted = false;
+          bgVideo.play();
+          localStorage.setItem("autoplayPermission", "yes");
+          document.getElementById("autoplayPrompt").style.display = "none";
+        };
+
+        document.getElementById("denyAutoplay").onclick = function () {
+          bgVideo.muted = true;
+          bgVideo.play();
+          localStorage.setItem("autoplayPermission", "no");
+          document.getElementById("autoplayPrompt").style.display = "none";
+        };
+      };
     </script>
   </body>
 </html>
