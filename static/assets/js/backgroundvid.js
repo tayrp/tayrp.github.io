@@ -2,6 +2,7 @@ const videos = [
   "https://index.havenmc.org/website/assets/mp4/fightsong.mp4",
   "https://index.havenmc.org/website/assets/mp4/usurper.mp4",
   "https://index.havenmc.org/website/assets/mp4/lmwasabi.mp4",
+  "https://index.havenmc.org/website/assets/mp4/canyoufeelmyheart.mp4",
 ];
 
 function setRandomVideo() {
