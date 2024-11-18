@@ -413,3 +413,52 @@ section:hover {
   text-decoration: none;
   cursor: pointer;
 }
+/* General styles for bgbox and home */
+.content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bgbox {
+  flex-grow: 1;
+  padding: 20px;
+  background: #f4f4f4; /* Light background color */
+  border-radius: 35px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+  position: relative;
+}
+
+/* Sidebar outside bgbox */
+.sidebar {
+  position: fixed;
+  right: 1002px;
+  top: 685px;
+  width: 91px;
+  color: white;
+  /* background: rgba(0, 0, 0, 0.28); /* Semi-transparent black background */
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  gap: 7px;
+  z-index: 1; /* Ensures sidebar is above other content */
+}
+
+.sidebar a {
+  display: block;
+  text-align: center; /* Centers the image */
+}
+
+.social-logo {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.sidebar a:hover .social-logo {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
