@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const names = ["Valerie", "Tee", "Riya", "Rhea", "Kara"];
+  const names = ["Valerie"];
   const nameElement = document.getElementById("dynamic-name");
   let index = 0;
   let currentName = "";
