@@ -1,6 +1,6 @@
-baseURL = 'https://gh.valerie.lol'
+baseURL = 'https://legacy.valerie.lol'
 languageCode = 'en-us'
-title = 'MystixMew'
+title = 'Valerie's Website'
 
 [outputs]
   home = ["HTML"]
