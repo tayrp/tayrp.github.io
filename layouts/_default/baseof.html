@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!--
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,12 +18,44 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/about/style.css" />
     <link rel="shortcut icon" href="/assets/imgs/pfps/favicon.png" />
-    -->
-    <meta http-equiv="refresh" content="0; url=https://valerie.lol" />
-  </head>
+    <style>
+        .big-red-notice {
+            background-color: #ff0000;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            animation: slowFlash 3s infinite;
+        }
+        .big-red-notice a {
+            color: white;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        @keyframes slowFlash {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; background-color: #ff3333; }
+            100% { opacity: 1; }
+        }
+        body {
+            padding-top: 100px; /* Adjusted to account for both notice and navbar */
+        }
+        .navbar-fixed-top {
+            top: 50px !important; /* Push navbar down below the notice */
+        }
+    </style>
+</head>
 
-  <body>
-    <!--
+<body>
+    <div class="big-red-notice">
+        🚨 NEW WEBSITE ALERT: This site has moved to <a href="https://valerie.lol">https://valerie.lol</a> 🚨
+    </div>
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-no-bg" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -48,6 +79,7 @@
                     <li><a class="btn btn-link-3" href="/discord">Discord</a></li>
                     <li><a class="btn btn-link-3" href="/pages">Pages</a></li>
                     <li><a class="btn btn-link-3" href="/credits">Credits</a></li>
+                <!--<li><a class="btn btn-link-3" id="toggle-dark-mode" onclick="toggleDarkMode()">🌙</a></li>-->
                 </ul>
             </div>
         </div>
@@ -66,9 +98,5 @@
             </div>
         </div>
     </footer>
-    -->
-    <script>
-      window.location.href = "https://valerie.lol";
-    </script>
-  </body>
+</body>
 </html>
