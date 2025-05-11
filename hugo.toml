@@ -1,6 +1,6 @@
 baseURL = 'https://legacy.valerie.lol'
 languageCode = 'en-us'
-title = 'Valerie's Website'
+title = 'Valeries Website'
 
 [outputs]
   home = ["HTML"]
